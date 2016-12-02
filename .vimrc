@@ -51,43 +51,6 @@ set laststatus=2
 "Remove whitespaces at the end of the line
 let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
 
-"++++++ VUNDLE Plugins ++++++++
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Track the engine.
-"Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
-" Optional:
-Plugin 'honza/vim-snippets'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-"+++++++++ VUNDLE END ++++++++
-
 set csre "use cscope.out file location as the prefix to construct an absolute path
 
 "load a cscope file. If the current dir doesn't have this file, the search keep going up until root dir is hit
@@ -115,11 +78,3 @@ endif
 let g:ctrlp_root_markers = ['.ctrlp']
 " Default to file mode
 let g:ctrlp_by_filename = 0
-
-"Powerline support for vim
-"/usr/bin/python from powerline.vim import setup as powerline_setup
-"/usr/bin/python powerline_setup()
-"/usr/bin/python del powerline_setup
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
