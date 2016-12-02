@@ -28,6 +28,7 @@ echo "=============== Installing OH MY ZSH ================="
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 #setup softlinks
+echo "=============== Setup Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc 
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc 
