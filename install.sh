@@ -19,6 +19,7 @@ git checkout coop
 
 #install zsh if not installed
 if [ -z "${zsh_prog}" ]; then
+	echo "=============== Installing ZSH ================="
 	sudo apt-get install zsh -y
 fi
 
