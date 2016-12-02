@@ -16,7 +16,7 @@ cd ~/.settings
 git checkout coop
 
 #Install Oh my Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 #setup softlinks
 ln -s ~/.settings/.vimrc ~/.vimrc 
