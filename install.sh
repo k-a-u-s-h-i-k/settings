@@ -29,7 +29,7 @@ fi
 #Install Oh my Zsh
 echo ""
 echo "=============== Installing OH MY ZSH ================="
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -); exit"
 
 #setup softlinks
 echo ""
