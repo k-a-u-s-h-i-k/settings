@@ -5,5 +5,9 @@
 
 pwd=`pwd`
 
-ln -s $pwd/.vimrc ~/.vimrc 
-ln -s $pwd/.zshrc ~/.zshrc 
+git clone https://github.com/k-a-u-s-h-i-k/settings.git ~/.settings
+cd ~/.settings
+git checkout coop
+
+ln -s ~/.settings/.vimrc ~/.vimrc 
+ln -s ~/.settings/.zshrc ~/.zshrc 
