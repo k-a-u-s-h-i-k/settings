@@ -17,10 +17,6 @@ cd ~/.settings
 #switch to the coop branch
 git checkout coop
 
-#setup softlinks
-ln -s ~/.settings/.vimrc ~/.vimrc 
-ln -s ~/.settings/.zshrc ~/.zshrc 
-
 #install zsh if not installed
 if [ -z "${zsh_prog}" ]; then
 	echo "=============== Installing ZSH ================="
@@ -30,3 +26,9 @@ fi
 #Install Oh my Zsh
 echo "=============== Installing OH MY ZSH ================="
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+#setup softlinks
+ln -s ~/.settings/.vimrc ~/.vimrc 
+mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
+ln -s ~/.settings/.zshrc ~/.zshrc 
+
