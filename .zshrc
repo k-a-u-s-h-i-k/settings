@@ -103,8 +103,6 @@ alias vim=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias vi=/usr/local/Cellar/vim/8.0.0002/bin/vim
 #alias -g grep='grep -I'
 
-source $ZSH/custom/personal/personal.sh
-
 #Increase the number of open file descriptors.
 #This is needed while building android
 ulimit -S -n 1024
@@ -175,8 +173,5 @@ POWERLEVEL9K_TIME_BACKGROUND='202'
 
 # Avoid homebrew from collecting analytics info
 export HOMEBREW_NO_ANALYTICS=1
-
-# ZSH Syntax Highlighting
-source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ####################################################################################
