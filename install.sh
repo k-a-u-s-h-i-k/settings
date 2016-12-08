@@ -35,11 +35,12 @@ sed -i '/chsh -s/d' oh.sh
 chmod +x oh.sh
 ./oh.sh
 
-
 #setup softlinks
 echo ""
 echo "=============== Setup Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc 
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc 
+echo "=============== Soft links setup done ================="
+echo "=============== Your vimrc and zshrc files are now in your home folder ================="
 
