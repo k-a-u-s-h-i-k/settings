@@ -51,7 +51,9 @@ set laststatus=2
 "Remove whitespaces at the end of the line
 let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
 
-set csre "use cscope.out file location as the prefix to construct an absolute path
+if has("cscope")
+	set csre "use cscope.out file location as the prefix to construct an absolute path
+endif
 
 "load a cscope file. If the current dir doesn't have this file, the search keep going up until root dir is hit
 function! LoadCscope()
