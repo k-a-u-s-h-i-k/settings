@@ -31,7 +31,7 @@ echo ""
 echo "=============== Installing OH MY ZSH ================="
 wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O oh.sh
 sed -i '/env zsh/d' oh.sh
-sed -i '/chsh/d' oh.sh
+sed -i '/chsh -s/d' oh.sh
 chmod +x oh.sh
 ./oh.sh
 
