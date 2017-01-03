@@ -102,6 +102,7 @@ alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial 
 alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias vim=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias vi=/usr/local/Cellar/vim/8.0.0002/bin/vim
+alias pi='ssh osmc@192.168.1.109'
 #alias -g grep='grep -I'
 
 source $ZSH/custom/personal/personal.sh
@@ -160,6 +161,13 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #zsh vi keybindings
 bindkey -v
+
+#reduce esc key timeout in vim mode to 0.1 seconds
+export KEYTIMEOUT=1
+
+#up arrow and down arrow use the commands previous history
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
 
 #zsh spelling correction
 setopt correct
