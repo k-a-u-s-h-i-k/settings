@@ -156,6 +156,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 #zsh vi keybindings
 bindkey -v
 
+#up arrow and down arrow use the commands previous history
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
+
 #zsh spelling correction
 setopt correct
 
