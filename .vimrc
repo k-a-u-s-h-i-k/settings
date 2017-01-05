@@ -1,5 +1,5 @@
 syntax on "turn on syntax highlighting
-
+set nocompatible "dont be compatible with vi
 "tab settings
 "set expandtab "expand tabs
 set tabstop=4 "
@@ -15,6 +15,9 @@ set incsearch " enable incremental matches
 set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
+set wildmenu "Enable enhanced command-line completion.
+set hidden "allow multiple unsaved files to be open in the background
+set showmode "show what mode we are in (insert, command, visual etc)
 
 "wrapping settings
 "set wrap
@@ -23,6 +26,7 @@ set backspace=2 "allow backspace to delete characters
 set textwidth=132 "max 132 characters in a line
 "set fo+=t
 
+filetype on "enable file specific behaviour
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
 set tags=./tags; "locate tags file for ctags
 
