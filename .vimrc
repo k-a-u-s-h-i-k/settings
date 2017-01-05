@@ -1,12 +1,12 @@
 syntax on "turn on syntax highlighting
-
+set nocompatible "Forget being compatible with good ol' vi
 "tab settings
 "set expandtab "expand tabs
 set tabstop=4 "
 set softtabstop=4
 set shiftwidth=4
 
-colorscheme zellner
+colorscheme zellner "choose default colourscheme
 set hlsearch " turn on search pattern highlighting
 set ignorecase " ignore case when searching...
 set smartcase "... unless pattern has uppercase character
@@ -15,6 +15,8 @@ set incsearch " enable incremental matches
 set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
+set hidden "allow multiple files to opened in different buffers, 'hidden' in the background
+set wildmenu "an extra bar pops up in ex (command) mode that shows completion options
 
 "wrapping settings
 "set wrap
@@ -23,7 +25,9 @@ set backspace=2 "allow backspace to delete characters
 set textwidth=132 "max 132 characters in a line
 "set fo+=t
 
+filetype on "turn on file type recognition to do custom stuff
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
+"filetype indent on "turn on indentation settings for specific file types TODO Set this up
 set tags=./tags; "locate tags file for ctags
 
 call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut for highlighting marks

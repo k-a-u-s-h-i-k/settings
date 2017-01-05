@@ -103,6 +103,7 @@ alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio
 alias vim=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias vi=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias pi='ssh osmc@192.168.1.109'
+alias vimrc='vim ~/.vimrc'
 #alias -g grep='grep -I'
 
 source $ZSH/custom/personal/personal.sh
