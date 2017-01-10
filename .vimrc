@@ -1,9 +1,9 @@
-syntax on "turn on syntax highlighting
 set nocompatible "Forget being compatible with good ol' vi
+syntax on "turn on syntax highlighting
 "tab settings
 "set expandtab "expand tabs
-set tabstop=4 "
-set softtabstop=4
+set tabstop=4 "number of spaces that a <tab> in the file counts for
+set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
 
 colorscheme zellner "choose default colourscheme
