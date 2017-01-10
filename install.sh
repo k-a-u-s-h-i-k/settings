@@ -42,5 +42,19 @@ ln -s ~/.settings/.vimrc ~/.vimrc
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc 
 echo "=============== Soft links setup done ================="
+
+
+echo "=============== Setup cscope maps ====================="
+if [ ! -d ~/.vim ]; then
+	mkdir ~/.vim #if ~/.vim dir doesn't exist, create it
+fi
+if [ ! -d ~/.vim/plugin ]; then
+	mkdir ~/.vim/plugin #if plugin dir doesn't exist, create it
+fi
+cd ~/.vim/plugin
+wget http://cscope.sourceforge.net/cscope_maps.vim
+cd - # go back to the previous directory
+
 echo "=============== Your vimrc and zshrc files are now in your home folder ================="
+echo "=============== Setup successful =================="
 
