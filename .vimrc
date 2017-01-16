@@ -1,15 +1,15 @@
 set nocompatible "Forget being compatible with good ol' vi
 syntax on "turn on syntax highlighting
-"tab settings
+
 "set expandtab "expand tabs
 set tabstop=4 "number of spaces that a <tab> in the file counts for
 set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
 
-colorscheme zellner "choose default colourscheme
+colorscheme badwolf "choose default colourscheme
 set hlsearch " turn on search pattern highlighting
 set ignorecase " ignore case when searching...
-set smartcase "... unless pattern has uppercase character
+set smartcase " ... unless pattern has uppercase character
 set incsearch " enable incremental matches
 "set list " display tabs and line endings
 set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
@@ -17,13 +17,23 @@ set number "show line number in files
 set backspace=2 "allow backspace to delete characters
 set hidden "allow multiple files to opened in different buffers, 'hidden' in the background
 set wildmenu "an extra bar pops up in ex (command) mode that shows completion options
+set lazyredraw "no screen redraw while executing macros, registers and other commands that haven't been typed
 
-"wrapping settings
 "set wrap
 "set linebreak
 "set nolist
 set textwidth=132 "max 132 characters in a line
 "set fo+=t
+
+"disable arrow keys in normal and insert mode (use hjkl instead)
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 filetype on "turn on file type recognition to do custom stuff
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
@@ -42,7 +52,7 @@ set autochdir "change the working directory to the directory in which the file b
 
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
-let Tlist_Auto_Open = 1
+"let Tlist_Auto_Open = 1
 let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1
 
@@ -51,11 +61,23 @@ set statusline+=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 "Always show the status line
 set laststatus=2
 
-"++++++++++++ MACROS +++++++++++++++++++++++++++++++++++++++++++++++
+"---------------------  MACROS ------------------------------
 "Remove whitespaces at the end of the line
 let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
 
-"++++++ VUNDLE Plugins ++++++++
+"--------------------- LEADER KEY SHORTCUTS ------------------------------
+let mapleader = "\<Space>"
+"leader + w to save a file
+nnoremap <Leader>w :w<CR>
+"various shortcuts to copy/paste from system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+"--------------------- Vundle plugins ------------------------------
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -90,7 +112,7 @@ Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-"+++++++++ VUNDLE END ++++++++
+"--------------------- Vundle end------------------------------
 
 set csre "use cscope.out file location as the prefix to construct an absolute path
 
