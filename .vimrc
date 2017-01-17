@@ -25,15 +25,16 @@ set lazyredraw "no screen redraw while executing macros, registers and other com
 set textwidth=132 "max 132 characters in a line
 "set fo+=t
 
-"disable arrow keys in normal and insert mode (use hjkl instead)
+"disable arrow keys in normal mode (use hjkl instead)
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+"disable arrow keys in inser mode (use hjkl instead)
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
 
 filetype on "turn on file type recognition to do custom stuff
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
@@ -114,7 +115,6 @@ call vundle#end()            " required
 
 "--------------------- Vundle end------------------------------
 
-set csre "use cscope.out file location as the prefix to construct an absolute path
 
 "load a cscope file. If the current dir doesn't have this file, the search keep going up until root dir is hit
 function! LoadCscope()
@@ -124,6 +124,7 @@ function! LoadCscope()
     set nocscopeverbose " suppress 'duplicate connection' error
     exe "cs add " . db . " " . path
     set cscopeverbose
+	set csre "use cscope.out file location as the prefix to construct an absolute path
   endif
 endfunction
 au BufEnter /* call LoadCscope()
@@ -142,10 +143,5 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " Default to file mode
 let g:ctrlp_by_filename = 0
 
-"Powerline support for vim
-"/usr/bin/python from powerline.vim import setup as powerline_setup
-"/usr/bin/python powerline_setup()
-"/usr/bin/python del powerline_setup
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"add powerline folder to runtimepath to enable it
+set runtimepath+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
