@@ -1,7 +1,7 @@
 set nocompatible "Forget being compatible with good ol' vi
 syntax on "turn on syntax highlighting
 
-"set expandtab "expand tabs
+set expandtab "expand tabs
 set tabstop=4 "number of spaces that a <tab> in the file counts for
 set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
@@ -11,13 +11,15 @@ set hlsearch " turn on search pattern highlighting
 set ignorecase " ignore case when searching...
 set smartcase " ... unless pattern has uppercase character
 set incsearch " enable incremental matches
-"set list " display tabs and line endings
+set list " display tabs and line endings
 set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
 set hidden "allow multiple files to opened in different buffers, 'hidden' in the background
 set wildmenu "an extra bar pops up in ex (command) mode that shows completion options
 set lazyredraw "no screen redraw while executing macros, registers and other commands that haven't been typed
+set autochdir "change the working directory to the directory in which the file being opened lives
+set cursorline "highlight current line
 
 "set wrap
 "set linebreak
@@ -30,11 +32,18 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"disable arrow keys in inser mode (use hjkl instead)
+"disable arrow keys in insert mode (use hjkl instead)
 "imap <up> <nop>
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
+
+"if our '{' or '}' are not in the first column for a function, use find
+map [[ ?{<CR>w99[{
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
+
 
 filetype on "turn on file type recognition to do custom stuff
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
@@ -49,7 +58,6 @@ endif
 
 "au BufRead,BufNewFile *.logcat set filetype=logcat "recognize logcat files
 
-set autochdir "change the working directory to the directory in which the file being opened lives
 
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
@@ -64,7 +72,7 @@ set laststatus=2
 
 "---------------------  MACROS ------------------------------
 "Remove whitespaces at the end of the line
-let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
+let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line (typing ctrl + v followed by enter gives ^M)
 
 "--------------------- LEADER KEY SHORTCUTS ------------------------------
 let mapleader = "\<Space>"
@@ -116,7 +124,7 @@ call vundle#end()            " required
 "--------------------- Vundle end------------------------------
 
 
-"load a cscope file. If the current dir doesn't have this file, the search keep going up until root dir is hit
+"load a cscope file. If the current dir doesn't have this file, the search keeps going up until root dir is hit
 function! LoadCscope()
   let db = findfile("cscope.out", ".;")
   if (!empty(db))
@@ -128,6 +136,19 @@ function! LoadCscope()
   endif
 endfunction
 au BufEnter /* call LoadCscope()
+
+function! SvnCheckIfNewFile()
+	"let filename = expand('%:t')
+	execute "! svn status -q | grep " . expand('%:t')
+	echo out
+endfunction
+
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
 " Ctrl-P plugin setup
 set runtimepath^=~/.vim/bundle/ctrlp.vim

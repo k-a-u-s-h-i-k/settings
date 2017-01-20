@@ -1,0 +1,5 @@
+zt - take the current line to the top of the window
+zz - take the current line to the middle of the window
+zb - take the current line to the bottom of the window
+ctrl + y = scroll up
+ctrl + e = scroll down
