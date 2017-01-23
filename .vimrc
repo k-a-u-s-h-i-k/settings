@@ -18,6 +18,7 @@ set backspace=2 "allow backspace to delete characters
 set wildmenu "Enable enhanced command-line completion.
 set hidden "allow multiple unsaved files to be open in the background
 set showmode "show what mode we are in (insert, command, visual etc)
+set autochdir "change the working directory to the directory in which the file being opened lives
 
 "wrapping settings
 "set wrap
@@ -32,13 +33,7 @@ set tags=./tags; "locate tags file for ctags
 
 call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut for highlighting marks
 
-if &diff
-    colorscheme pablo "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
-endif
-
 "au BufRead,BufNewFile *.logcat set filetype=logcat "recognize logcat files
-
-set autochdir "change the working directory to the directory in which the file being opened lives
 
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
@@ -53,7 +48,7 @@ set laststatus=2
 
 "++++++++++++ MACROS +++++++++++++++++++++++++++++++++++++++++++++++
 "Remove whitespaces at the end of the line
-let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
+let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line
 
 "load a cscope file. If the current dir doesn't have this file, the search keep going up until root dir is hit
 function! LoadCscope()
@@ -66,7 +61,11 @@ function! LoadCscope()
 	set csre "use cscope.out file location as the prefix to construct an absolute path
   endif
 endfunction
-au BufEnter /* call LoadCscope()
+if &diff
+	colorscheme pablo "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
+else
+	au BufEnter /* call LoadCscope()
+endif
 
 " Ctrl-P plugin setup
 set runtimepath^=~/.vim/bundle/ctrlp.vim
