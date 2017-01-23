@@ -57,7 +57,7 @@ call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut 
 
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
-"let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 1
 let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1
 
