@@ -11,7 +11,7 @@ set hlsearch " turn on search pattern highlighting
 set ignorecase " ignore case when searching...
 set smartcase " ... unless pattern has uppercase character
 set incsearch " enable incremental matches
-set list " display tabs and line endings
+"set list " display tabs and line endings
 set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
@@ -51,10 +51,6 @@ filetype plugin on "recognize what kind of file we are editing - c file, .h or m
 set tags=./tags; "locate tags file for ctags
 
 call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut for highlighting marks
-
-if &diff
-    colorscheme pablo "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
-endif
 
 "au BufRead,BufNewFile *.logcat set filetype=logcat "recognize logcat files
 
@@ -135,7 +131,14 @@ function! LoadCscope()
 	set csre "use cscope.out file location as the prefix to construct an absolute path
   endif
 endfunction
-au BufEnter /* call LoadCscope()
+
+
+if &diff
+    colorscheme seti "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
+else
+    au BufEnter /* call LoadCscope()
+endif
+
 
 function! SvnCheckIfNewFile()
 	"let filename = expand('%:t')
