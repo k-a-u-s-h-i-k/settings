@@ -57,7 +57,7 @@ call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut 
 
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
-let Tlist_Auto_Open = 1
+"let Tlist_Auto_Open = 1
 let Tlist_WinWidth = 50
 let Tlist_Exit_OnlyWindow = 1
 
@@ -166,6 +166,8 @@ endif
 let g:ctrlp_root_markers = ['.ctrlp']
 " Default to file mode
 let g:ctrlp_by_filename = 0
+
+let c_space_errors = 1 "highlight trailing white space for c files
 
 "add powerline folder to runtimepath to enable it
 set runtimepath+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
