@@ -6,6 +6,7 @@ syntax on "turn on syntax highlighting
 set tabstop=4 "
 set softtabstop=4
 set shiftwidth=4
+set autoindent
 
 colorscheme zellner " use zellner for colourscheme
 set hlsearch " turn on search pattern highlighting
