@@ -5,6 +5,7 @@ set expandtab "expand tabs
 set tabstop=4 "number of spaces that a <tab> in the file counts for
 set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
+set autoindent "automatically align to indentation for a new line
 
 colorscheme badwolf "choose default colourscheme
 set hlsearch " turn on search pattern highlighting
@@ -12,7 +13,7 @@ set ignorecase " ignore case when searching...
 set smartcase " ... unless pattern has uppercase character
 set incsearch " enable incremental matches
 "set list " display tabs and line endings
-set lcs=trail:-,tab:-- " change the way tabs and line ends are displayed
+set listchars=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
 set hidden "allow multiple files to opened in different buffers, 'hidden' in the background

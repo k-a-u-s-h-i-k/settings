@@ -1,6 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
 ZSH_THEME="powerlevel9k/powerlevel9k" #current theme
+ZSH_THEME="agnoster" #current theme
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info)
 
@@ -22,6 +23,7 @@ alias vim=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias vi=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias pi='ssh osmc@192.168.1.109'
 alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
@@ -90,5 +92,5 @@ POWERLEVEL9K_TIME_BACKGROUND='202'
 # Avoid homebrew from collecting analytics info
 export HOMEBREW_NO_ANALYTICS=1
 
-# ZSH Syntax Highlighting note this should be the last entry
+# ZSH Syntax Highlighting  - note this should be the last entry
 source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
