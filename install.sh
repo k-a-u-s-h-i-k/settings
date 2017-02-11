@@ -39,6 +39,8 @@ chmod +x oh.sh
 echo ""
 echo "=============== Setup Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc 
+echo "\"Add your custom vim settings to this file" > ~/.myvimrc
+echo "\"Add your custom zsh settings to this file" > ~/.myzshrc
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc 
 echo "=============== Soft links setup done ================="
@@ -55,6 +57,20 @@ cd ~/.vim/plugin
 wget http://cscope.sourceforge.net/cscope_maps.vim
 cd - # go back to the previous directory
 
-echo "=============== Your vimrc and zshrc files are now in your home folder ================="
+echo "=============== Setup Makefile ftplugin ==============="
+if [ ! -d ~/.vim/ftplugin ]; then
+	mkdir ~/.vim/ftplugin
+fi
+cd ~/.vim/ftplugin
+echo "set noexpandtab" > make.vim
+cd -
+
+echo "=============== Setup Go directories ==============="
+if [ ! -d ~/.go-dirs ]; then
+    mkdir ~/.go-dirs
+fi
+
+echo "=============== vimrc and zshrc files are now in your home folder ================="
+echo "=============== Add custom vim settings to .myvimrc file ============"
 echo "=============== Setup successful =================="
 

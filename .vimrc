@@ -2,7 +2,7 @@ set nocompatible "dont be compatible with vi
 syntax on "turn on syntax highlighting
 
 "tab settings
-"set expandtab "expand tabs
+set expandtab "expand tabs to spaces
 set tabstop=4 "
 set softtabstop=4
 set shiftwidth=4
@@ -80,3 +80,6 @@ augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
+
+" Add custom vim settings
+source $HOME/.myvimrc

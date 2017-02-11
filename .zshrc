@@ -85,35 +85,50 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-############################ MY PERSONAL ADDONS #####################################
-
+#---------------------  CUSTOM OPTIONS ------------------------------
 export SVN_EDITOR=vim
 alias cls=clear
 alias ll='ls -l'
 alias la='ls -a'
+alias mm='make'
 alias mc='make clean'
 alias mh='make hinstall'
 alias mi='make install'
-alias mr='make run'
-alias mre='make report'
+alias mru='make run'
+alias mr='make report'
+alias mrc='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
 alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
-alias vimrc='vim ~/.vimrc'
-#alias -g grep='grep -I'
+alias vimrc='vim ~/.myvimrc'
+alias zshrc='vim ~/.myzshrc'
 
-#Increase the number of open file descriptors.
-#This is needed while building android
-ulimit -S -n 1024
-
-export CCACHE_DIR=$HOME/Work/ccache
-export USE_CCACHE=1
-
-#set the name of a tab
-function nw {
-    echo -n -e "\033]0;$1\007"
-}
-
+# usage:
+# Go to a folder to save as a bookmark
+# save <name of bookmark>
+#
+# To go to this direcoty from any other directory
+# go <name of bookmark>
+#
+# To delete a bookmark
+# unsave <name of bookmark>
+#
+# To move to a directory using pushd
+# pgo <name of bookmark>
+#
+# To move to the previous directory on the stack
+# popd
+#
+# ex.
+# cd /tmp
+# save tmp
+# cd ~
+# go tmp
+# cd ~
+# pgo tmp
+# popd
+# unsave tmp
+#
 function go {
 	if [ "x$1" = "x" ]; then
 		echo "Directories:"
@@ -146,14 +161,6 @@ function unsave {
 	rm -v ~/.go-dirs/$1
 }
 
-# pip should only run if there is a virtualenv currently activated 
-#export PIP_REQUIRE_VIRTUALENV=true 
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache
-
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 #zsh vi keybindings
 bindkey -v
 
@@ -165,16 +172,13 @@ bindkey '^[OB' down-line-or-beginning-search
 setopt correct
 
 #ZSH default editor
-export EDITOR=/usr/local/Cellar/vim/8.0.0002/bin/vim
+export EDITOR=`which vim`
 
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine 
+# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine
 export DEFAULT_USER=$USER
 POWERLEVEL9K_TIME_FOREGROUND='black'
 POWERLEVEL9K_TIME_BACKGROUND='202'
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 
-# Avoid homebrew from collecting analytics info
-export HOMEBREW_NO_ANALYTICS=1
-
-####################################################################################
+source $HOME/.myzshrc
