@@ -74,3 +74,5 @@ echo "=============== vimrc and zshrc files are now in your home folder ========
 echo "=============== Add custom vim settings to .myvimrc file ============"
 echo "=============== Setup successful =================="
 
+#Check this site for how to setup cron task for auto git pull
+#https://thoughtsimproved.wordpress.com/2015/08/17/self-updating-git-repos/
