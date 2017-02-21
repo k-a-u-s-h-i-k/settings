@@ -21,6 +21,7 @@ set wildmenu "an extra bar pops up in ex (command) mode that shows completion op
 set lazyredraw "no screen redraw while executing macros, registers and other commands that haven't been typed
 set autochdir "change the working directory to the directory in which the file being opened lives
 set cursorline "highlight current line
+set cinoptions=:0,b1: "align switch case and break on switch statement
 
 "set wrap
 "set linebreak
