@@ -40,7 +40,7 @@ echo ""
 echo "=============== Setup Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc 
 echo "\"Add your custom vim settings to this file" > ~/.myvimrc
-echo "\"Add your custom zsh settings to this file" > ~/.myzshrc
+echo "#Add your custom zsh settings to this file" > ~/.myzshrc
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc 
 echo "=============== Soft links setup done ================="
@@ -71,7 +71,7 @@ if [ ! -d ~/.go-dirs ]; then
 fi
 
 echo "=============== vimrc and zshrc files are now in your home folder ================="
-echo "=============== Add custom vim settings to .myvimrc file ============"
+echo "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
 echo "=============== Setup successful =================="
 
 #Check this site for how to setup cron task for auto git pull
