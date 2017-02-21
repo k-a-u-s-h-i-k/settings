@@ -24,6 +24,7 @@ set autochdir "change the working directory to the directory in which the file b
 set statusline+=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P "show full path name of the file in the status bar
 set laststatus=2 "Always show the status line
 set autoindent "Copy indent from current line when starting a new line
+set cinoptions=:0,b1: "align switch case and break on switch statement
 
 "wrapping settings
 "set wrap
