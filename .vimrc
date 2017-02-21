@@ -1,7 +1,7 @@
 set nocompatible "Forget being compatible with good ol' vi
 syntax on "turn on syntax highlighting
 
-set expandtab "expand tabs
+"set expandtab "expand tabs
 set tabstop=4 "number of spaces that a <tab> in the file counts for
 set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
