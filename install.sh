@@ -65,6 +65,9 @@ cd ~/.vim/ftplugin
 echo "set noexpandtab" > make.vim
 cd -
 
+echo "=============== Install vim-gtk to get global clipboard support ==============="
+sudo apt install vim-gtk
+
 echo "=============== Setup Go directories ==============="
 if [ ! -d ~/.go-dirs ]; then
     mkdir ~/.go-dirs

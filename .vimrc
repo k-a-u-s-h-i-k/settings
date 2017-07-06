@@ -61,6 +61,26 @@ function! s:Keywords()
 endfunction
 autocmd FileType c,cpp call s:Keywords()
 
+"--------------------- LEADER KEY SHORTCUTS ------------------------------
+let mapleader = "\<Space>"
+"leader + w to save a file
+nnoremap <Leader>w :w<CR>
+"various shortcuts to copy/paste from system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+"leader + m to run make on the terminal
+noremap <Leader>m :!make <enter>
+"leader + c to run make clean on the terminal
+noremap <Leader>c :!make clean <enter>
+"leader + r to run make report on the terminal
+noremap <Leader>r :!make report <enter>
+"leader + n to run make clean && make report on the terminal
+noremap <Leader>n :!make clean && make report <enter>
+
 "---------------------------------------- CUSTOM ----------------------------------------
 if &diff
 	colorscheme pablo "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
