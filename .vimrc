@@ -172,4 +172,6 @@ let g:ctrlp_by_filename = 0
 let c_space_errors = 1 "highlight trailing white space for c files
 
 "add powerline folder to runtimepath to enable it
-set runtimepath+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
+if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
+    set runtimepath+=~/.local/lib/python
+fi

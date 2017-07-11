@@ -1,7 +1,8 @@
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
-ZSH_THEME="powerlevel9k/powerlevel9k" #current theme
+#ZSH_THEME="powerlevel9k/powerlevel9k" #current theme
 ZSH_THEME="agnoster" #current theme
+#ZSH_THEME="gallois" #current theme
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info)
 
@@ -20,11 +21,10 @@ alias mcr='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
 alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
-alias vim=/usr/local/Cellar/vim/8.0.0002/bin/vim
-alias vi=/usr/local/Cellar/vim/8.0.0002/bin/vim
 alias pi='ssh osmc@192.168.1.109'
-alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias vpn='/opt/cisco/anyconnect/bin/vpnui'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
@@ -38,6 +38,7 @@ bindkey '^[OB' down-line-or-beginning-search #down arrrow use the commands previ
 bindkey "^I" expand-or-complete-with-dots #insert red dots when waiting for completion
 setopt HIST_FIND_NO_DUPS #when searching/scrolling through history, ignore dupe entries
 setopt correct #zsh spelling correction
+setopt extended_glob
 #---------------------  ZSH OPTIONS ------------------------------
 
 #Increase the number of open file descriptors.
@@ -81,7 +82,13 @@ function unsave {
 
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated 
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
-export EDITOR=/usr/local/Cellar/vim/8.0.0002/bin/vim #ZSH default editor
+export EDITOR=`which vim` #ZSH default editor
+
+
+#------------------------------  POWERLINE --------------------------------------
+if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
+     source /usr/share/powerline/bindings/zsh/powerline.zsh
+fi
 
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 # zsh theme powerlevel9k requires this so the prompt doesn't show username@machine 
@@ -90,8 +97,5 @@ POWERLEVEL9K_TIME_FOREGROUND='black'
 POWERLEVEL9K_TIME_BACKGROUND='202'
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 
-# Avoid homebrew from collecting analytics info
-export HOMEBREW_NO_ANALYTICS=1
-
-# ZSH Syntax Highlighting  - note this should be the last entry
+# ZSH Syntax Highlighting note this should be the last entry
 source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
