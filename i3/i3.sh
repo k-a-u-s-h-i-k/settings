@@ -9,5 +9,8 @@ echo $source | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
 #install compton composite manager (scrolling is not smooth in Firefox) on Nvidia GPUs with i3
 sudo apt install compton
 
-
-
+#copy i3 config files
+if [ ! -d ~/.config/i3 ]; then
+	mkdir -p ~/.config/i3
+fi
+ln -s ~/.settings/i3/config ~/.config/i3/config
