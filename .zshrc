@@ -24,6 +24,7 @@ alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio
 alias pi='ssh osmc@192.168.1.109'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias i3c='vim ${HOME}/.settings/i3/config'
 alias vpn='/opt/cisco/anyconnect/bin/vpnui'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
