@@ -57,6 +57,14 @@ cd ~/.vim/plugin
 wget http://cscope.sourceforge.net/cscope_maps.vim
 cd - # go back to the previous directory
 
+echo "=============== Download badwolf theme ====================="
+if [ ! -d ${HOME}/.vim/colors ]; then
+    mkdir ${HOME}/.vim/colors
+fi
+cd ${HOME}/.vim/colors
+wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
+cd -
+
 echo "=============== Setup Makefile ftplugin ==============="
 if [ ! -d ~/.vim/ftplugin ]; then
 	mkdir ~/.vim/ftplugin
