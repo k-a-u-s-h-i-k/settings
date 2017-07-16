@@ -14,3 +14,14 @@ if [ ! -d ~/.config/i3 ]; then
 	mkdir -p ~/.config/i3
 fi
 ln -s ~/.settings/i3/config ~/.config/i3/config
+
+read -s -n 1 -r -p "Would you like to make i3 your default login session? (y)es or (n)o? " option
+case ${option:-} in
+	[yY] ) DEFAULT_SESSION_I3=1 ;;
+	[nN] ) DEFAULT_SESSION_I3=0 ;;
+	*    ) DEFAULT_SESSION_I3=0 ;; 
+esac
+
+if [[ ${DEFAULT_SESSION_I3} -gt 0 ]]; then
+	echo "user-session=i3" | sudo tee /etc/lightdm/lightdm.conf
+fi
