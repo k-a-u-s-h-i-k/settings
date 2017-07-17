@@ -84,12 +84,13 @@ function unsave {
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated 
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
 export EDITOR=`which vim` #ZSH default editor
+export TERM=xterm-256color
 
 
 #------------------------------  POWERLINE --------------------------------------
-if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
-     source /usr/share/powerline/bindings/zsh/powerline.zsh
-fi
+#if [[ -a ${HOME}/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#	source ${HOME}/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
 
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 # zsh theme powerlevel9k requires this so the prompt doesn't show username@machine 
