@@ -1,8 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
-#ZSH_THEME="powerlevel9k/powerlevel9k" #current theme
-ZSH_THEME="agnoster" #current theme
-#ZSH_THEME="gallois" #current theme
+ZSH_THEME="spaceship" #current theme
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info)
 
