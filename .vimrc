@@ -22,57 +22,36 @@ set lazyredraw "no screen redraw while executing macros, registers and other com
 set autochdir "change the working directory to the directory in which the file being opened lives
 set cursorline "highlight current line
 set cinoptions=:0,b1: "align switch case and break on switch statement
-
-"set wrap
-"set linebreak
-"set nolist
 set textwidth=132 "max 132 characters in a line
-"set fo+=t
 
 "disable arrow keys in normal mode (use hjkl instead)
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"disable arrow keys in insert mode (use hjkl instead)
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
 
 "if our '{' or '}' are not in the first column for a function, use find
-map [[ ?{<CR>w99[{
-map ][ /}<CR>b99]}
-map ]] j0[[%/{<CR>
-map [] k$][%?}<CR>
-
+map [[ ?{<CR>w99[{:nohl<CR>
+map ][ /}<CR>b99]}:nohl<CR>
+map ]] j0[[%/{<CR>:nohl<CR>
+map [] k$][%?}<CR>:nohl<CR>
 
 filetype on "turn on file type recognition to do custom stuff
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
 "filetype indent on "turn on indentation settings for specific file types TODO Set this up
 set tags=./tags; "locate tags file for ctags
 
-call feedkeys(",ms") "simulate pressing ,ms on vim startup. This is my shortcut for highlighting marks
-
-"au BufRead,BufNewFile *.logcat set filetype=logcat "recognize logcat files
-
-
 "Settings for TagList plugin
 "let Tlist_Use_Right_Window = 1
 "let Tlist_Auto_Open = 1
-let Tlist_WinWidth = 50
-let Tlist_Exit_OnlyWindow = 1
+"let Tlist_WinWidth = 50
+"let Tlist_Exit_OnlyWindow = 1
 
-"show full path name of the file in the status bar
-set statusline+=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"Always show the status line
-set laststatus=2
-
-"---------------------  MACROS ------------------------------
+"------------------------------  MACROS ----------------------------------
 "Remove whitespaces at the end of the line
 let @a=':%s/\s\+$//' "pressing @a in a file will remove all spaces at the end of a line (typing ctrl + v followed by enter gives ^M)
 
-"--------------------- LEADER KEY SHORTCUTS ------------------------------
+"------------------------- LEADER KEY SHORTCUTS --------------------------
 let mapleader = "\<Space>"
 "leader + w to save a file
 nnoremap <Leader>w :w<CR>
@@ -83,17 +62,32 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+
+
+"--------------------- Vim-Plug managed plugins ------------------------------
+"If vim-plug isn't installed, install it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+else
+	"plugin installed, load plugins
+	call plug#begin('~/.vim/plugged')
+		Plug 'vim-airline/vim-airline'
+	call plug#end()
+endif
+"--------------------- End of managed plugins ------------------------------
 
 "--------------------- Vundle plugins ------------------------------
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " Track the engine.
 "Plugin 'SirVer/ultisnips'
@@ -109,15 +103,15 @@ Plugin 'VundleVim/Vundle.vim'
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
 
 " Optional:
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 
 "--------------------- Vundle end------------------------------
 
@@ -134,14 +128,6 @@ function! LoadCscope()
   endif
 endfunction
 
-
-if &diff
-    colorscheme seti "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
-else
-    au BufEnter /* call LoadCscope()
-endif
-
-
 function! SvnCheckIfNewFile()
 	"let filename = expand('%:t')
 	execute "! svn status -q | grep " . expand('%:t')
@@ -153,10 +139,14 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+if &diff
+    colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
+else
+    au BufEnter /* call LoadCscope()
+endif
 
 " Ctrl-P plugin setup
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 if executable('ag')
   " Use Ag over Grep
     set grepprg=ag\ --nogroup\ --nocolor
@@ -170,8 +160,3 @@ let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_by_filename = 0
 
 let c_space_errors = 1 "highlight trailing white space for c files
-
-"add powerline folder to runtimepath to enable it
-if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
-    set runtimepath+=~/.local/lib/python
-fi
