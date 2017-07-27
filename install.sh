@@ -34,6 +34,7 @@ sed -i '/env zsh/d' oh.sh
 sed -i '/chsh -s/d' oh.sh
 chmod +x oh.sh
 ./oh.sh
+rm -f ./oh.sh
 
 #setup softlinks
 echo ""
