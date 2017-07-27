@@ -81,6 +81,25 @@ noremap <Leader>r :!make report <enter>
 "leader + n to run make clean && make report on the terminal
 noremap <Leader>n :!make clean && make report <enter>
 
+"--------------------- Vim-Plug managed plugins ------------------------------
+"If vim-plug isn't installed, install it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+else
+	"plugin installed, load plugins
+	call plug#begin('~/.vim/plugged')
+		" ariline plugin
+		Plug 'vim-airline/vim-airline'
+
+		"Plugins to support snips
+		Plug 'MarcWeber/vim-addon-mw-utils'
+		Plug 'tomtom/tlib_vim'
+		Plug 'garbas/vim-snipmate'
+		Plug 'honza/vim-snippets'
+	call plug#end()
+endif
+
 "---------------------------------------- CUSTOM ----------------------------------------
 if &diff
 	colorscheme pablo "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
