@@ -73,48 +73,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 else
 	"plugin installed, load plugins
 	call plug#begin('~/.vim/plugged')
+		" ariline plugin
 		Plug 'vim-airline/vim-airline'
+
+		"Plugins to support snips
+		Plug 'MarcWeber/vim-addon-mw-utils'
+		Plug 'tomtom/tlib_vim'
+		Plug 'garbas/vim-snipmate'
+		Plug 'honza/vim-snippets'
 	call plug#end()
 endif
-"--------------------- End of managed plugins ------------------------------
 
-"--------------------- Vundle plugins ------------------------------
-
-" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-
-" Track the engine.
-"Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-
-" Optional:
-"Plugin 'honza/vim-snippets'
-
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-
-"--------------------- Vundle end------------------------------
-
+"------------------------------ Functions ------------------------------------
 
 "load a cscope file. If the current dir doesn't have this file, the search keeps going up until root dir is hit
 function! LoadCscope()
@@ -138,6 +108,20 @@ endfunction
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
+
+" Open quickfix window list after search completes
+function! MySearch()
+  let grep_term = input("Enter search term: ")
+  if !empty(grep_term)
+    execute 'silent grep' grep_term | copen
+  else
+    echo "Empty search term"
+  endif
+  redraw!
+endfunction
+
+" :Grep in vim calls ag and automatically opens the quickfix window list
+command! Grep call MySearch()
 
 if &diff
     colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
