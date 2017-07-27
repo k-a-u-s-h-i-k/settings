@@ -14,11 +14,16 @@
 exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 exec ~/.settings/dock.sh
 exec --no-startup-id polybar example 
+# turn off screen after 3 minutes of activity
+exec --no-startup-id xset dpms 180 0 0
 #exec nm-applet #show wifi drop down menu in the dock
 set $mod Mod1
 
 # no title bars
 new_window none
+
+#go back to previous workspace with same keystroke
+workspace_auto_back_and_forth yes
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -160,7 +165,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+Control+l exec ~/.settings/lock.sh 
 bindsym $mod+Control+f [class="Firefox"] focus
-bindsym $mod+Control+t [class="Gnome-terminal"] focus
+bindsym $mod+Control+t [class="X-terminal-emulator"] focus
 bindsym $mod+Control+s [class="Slack"] focus
 bindsym $mod+Control+m [class="Evolution"] focus
 
@@ -168,10 +173,27 @@ assign [class="Firefox"] → 2:Web
 assign [class="Evolution"] → 3:Mail
 assign [class="Slack"] → 4:Comm
 
-exec gnome-terminal
+exec i3-sensible-terminal
 exec firefox
 exec evolution
 exec slack
+
+# Shutdown, reboot, lock screen
+set $Locker i3lock && sleep 1
+set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (shift+s) suspend, (shift+h) hibernate
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym shitf+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym shift-h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
 
 # rename workspace
 # bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
