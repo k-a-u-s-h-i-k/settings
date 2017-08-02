@@ -91,6 +91,10 @@ else
 	call plug#begin('~/.vim/plugged')
 		" ariline plugin
 		Plug 'vim-airline/vim-airline'
+		Plug 'vim-airline/vim-airline-themes'
+
+		"Buffers in status line
+		Plug 'bling/vim-bufferline'
 
 		"Plugins to support snips
 		Plug 'MarcWeber/vim-addon-mw-utils'
