@@ -25,3 +25,6 @@ esac
 if [[ ${DEFAULT_SESSION_I3} -gt 0 ]]; then
 	echo "user-session=i3" | sudo tee /etc/lightdm/lightdm.conf
 fi
+
+#use feh to manage desktop wallpapers
+sudo apt install feh
