@@ -23,6 +23,7 @@ set autochdir "change the working directory to the directory in which the file b
 set cursorline "highlight current line
 set cinoptions=:0,b1: "align switch case and break on switch statement
 set history=1000 "remember 1000 commands/search strings
+set sessionoptions-=options "when a session is saved, do not store vimrc options
 autocmd Filetype c setlocal textwidth=132  "max 132 characters in a line for c files
 
 "disable arrow keys in normal mode (use hjkl instead)
@@ -64,6 +65,8 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+"save current session
+noremap <silent> <Leader>s :mksession <enter>
 
 
 "--------------------- Vim-Plug managed plugins ------------------------------
@@ -137,6 +140,12 @@ if &diff
     colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
 else
     au BufEnter /* call LoadCscope()
+endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+" Use % key to jump between if,else if and else statements
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
 endif
 
 " Ctrl-P plugin setup
