@@ -22,7 +22,8 @@ set lazyredraw "no screen redraw while executing macros, registers and other com
 set autochdir "change the working directory to the directory in which the file being opened lives
 set cursorline "highlight current line
 set cinoptions=:0,b1: "align switch case and break on switch statement
-set textwidth=132 "max 132 characters in a line
+set history=1000 "remember 1000 commands/search strings
+autocmd Filetype c setlocal textwidth=132  "max 132 characters in a line for c files
 
 "disable arrow keys in normal mode (use hjkl instead)
 map <up> <nop>
@@ -85,6 +86,11 @@ else
 		Plug 'tomtom/tlib_vim'
 		Plug 'garbas/vim-snipmate'
 		Plug 'honza/vim-snippets'
+
+		"Git plugins
+		Plug 'airblade/vim-gitgutter'
+		Plug 'tpope/vim-fugitive'
+		Plug 'gregsexton/gitv', {'on': ['Gitv']}
 	call plug#end()
 endif
 
