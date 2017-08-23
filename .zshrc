@@ -25,6 +25,7 @@ alias vimrc='vim ~/.vimrc'
 alias i3c='vim ${HOME}/.settings/i3/config'
 alias vpn='/opt/cisco/anyconnect/bin/vpnui'
 alias per='vim ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
+alias muttrc='vim ${HOME}/.mutt/muttrc'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
