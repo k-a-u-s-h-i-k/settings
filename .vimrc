@@ -1,7 +1,8 @@
 set nocompatible "Forget being compatible with good ol' vi
 syntax on "turn on syntax highlighting
 
-"set expandtab "expand tabs
+"tab settings
+"set expandtab "expand tabs to spaces
 set tabstop=4 "number of spaces that a <tab> in the file counts for
 set softtabstop=4 "number of spaces that a <tab> counts for while performing editing operations
 set shiftwidth=4
@@ -17,7 +18,7 @@ set listchars=trail:-,tab:-- " change the way tabs and line ends are displayed
 set number "show line number in files
 set backspace=2 "allow backspace to delete characters
 set hidden "allow multiple files to opened in different buffers, 'hidden' in the background
-set wildmenu "an extra bar pops up in ex (command) mode that shows completion options
+set wildmenu "Enable enhanced command-line completion
 set lazyredraw "no screen redraw while executing macros, registers and other commands that haven't been typed
 set autochdir "change the working directory to the directory in which the file being opened lives
 set cursorline "highlight current line
@@ -39,16 +40,10 @@ map ][ /}<CR>b99]}:nohl<CR>
 map ]] j0[[%/{<CR>:nohl<CR>
 map [] k$][%?}<CR>:nohl<CR>
 
-filetype on "turn on file type recognition to do custom stuff
+filetype on "enable file specific behaviour
 filetype plugin on "recognize what kind of file we are editing - c file, .h or makefile etc.
 "filetype indent on "turn on indentation settings for specific file types TODO Set this up
 set tags=./tags; "locate tags file for ctags
-
-"Settings for TagList plugin
-"let Tlist_Use_Right_Window = 1
-"let Tlist_Auto_Open = 1
-"let Tlist_WinWidth = 50
-"let Tlist_Exit_OnlyWindow = 1
 
 "------------------------------  MACROS ----------------------------------
 "Remove whitespaces at the end of the line
@@ -65,10 +60,16 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+"leader + m to run make on the terminal
+noremap <Leader>m :!make <enter>
+"leader + c to run make clean on the terminal
+noremap <Leader>c :!make clean <enter>
+"leader + r to run make report on the terminal
+noremap <Leader>r :!make report <enter>
+"leader + n to run make clean && make report on the terminal
+noremap <Leader>n :!make clean && make report <enter>
 "save current session
 noremap <silent> <Leader>s :mksession <enter>
-
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
@@ -99,7 +100,6 @@ else
 endif
 
 "------------------------------ Functions ------------------------------------
-
 "load a cscope file. If the current dir doesn't have this file, the search keeps going up until root dir is hit
 function! LoadCscope()
   let db = findfile("cscope.out", ".;")
@@ -149,8 +149,6 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
-" Ctrl-P plugin setup
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
 if executable('ag')
   " Use Ag over Grep
     set grepprg=ag\ --nogroup\ --nocolor
@@ -158,9 +156,5 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-" Search for .ctrlp file if .svn, .git dir doesn't exist
-let g:ctrlp_root_markers = ['.ctrlp']
-" Default to file mode
-let g:ctrlp_by_filename = 0
 
 let c_space_errors = 1 "highlight trailing white space for c files
