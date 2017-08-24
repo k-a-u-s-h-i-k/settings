@@ -24,6 +24,7 @@ set cursorline "highlight current line
 set cinoptions=:0,b1: "align switch case and break on switch statement
 set history=1000 "remember 1000 commands/search strings
 set sessionoptions-=options "when a session is saved, do not store vimrc options
+set autoread "reread file if an external program has changed a file
 autocmd Filetype c setlocal textwidth=132  "max 132 characters in a line for c files
 
 "disable arrow keys in normal mode (use hjkl instead)
