@@ -112,16 +112,12 @@ function! LoadCscope()
   endif
 endfunction
 
-function! SvnCheckIfNewFile()
-	"let filename = expand('%:t')
-	execute "! svn status -q | grep " . expand('%:t')
-	echo out
+" Highlight these keywords
+function! s:Keywords()
+   syn keyword cConstant EOK
+   syn keyword cConstant UT_FAIL UT_PASS
 endfunction
-
-" Removes trailing spaces
-function! TrimWhiteSpace()
-    %s/\s\+$//e
-endfunction
+autocmd FileType c,cpp call s:Keywords()
 
 " Open quickfix window list after search completes
 function! MySearch()
@@ -137,6 +133,7 @@ endfunction
 " :Grep in vim calls ag and automatically opens the quickfix window list
 command! Grep call MySearch()
 
+"---------------------------------------- CUSTOM ----------------------------------------
 if &diff
     colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
 else
@@ -158,3 +155,10 @@ if executable('ag')
 endif
 
 let c_space_errors = 1 "highlight trailing white space for c files
+
+" Automatically reload vimrc when a write to it is detected
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+
