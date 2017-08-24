@@ -115,6 +115,20 @@ function! s:Keywords()
 endfunction
 autocmd FileType c,cpp call s:Keywords()
 
+" Open quickfix window list after search completes
+function! MySearch()
+  let grep_term = input("Enter search term: ")
+  if !empty(grep_term)
+    execute 'silent grep' grep_term | copen
+  else
+    echo "Empty search term"
+  endif
+  redraw!
+endfunction
+
+" :Grep in vim calls ag and automatically opens the quickfix window list
+command! Grep call MySearch()
+
 "---------------------------------------- CUSTOM ----------------------------------------
 if &diff
     colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
