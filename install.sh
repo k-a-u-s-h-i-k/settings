@@ -37,6 +37,9 @@ if [ -z "${git_prog}" ]; then
 	sudo apt-get install git -y
 fi
 
+output "============== Installing Ag =========================="
+sudo apt install -y silversearcher-ag
+
 #clone my repo
 output "=============== Cloning Kaushik's repo ================="
 git clone https://github.com/k-a-u-s-h-i-k/settings.git ~/.settings
