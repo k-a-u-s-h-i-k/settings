@@ -99,7 +99,7 @@ echo "set noexpandtab" > make.vim
 cd -
 
 output "=============== Install vim-gtk to get global clipboard support ==============="
-sudo apt install vim-gtk
+sudo apt install vim-gtk -y
 
 output "=============== Setup Go directories ==============="
 if [ ! -d ~/.go-dirs ]; then
