@@ -106,10 +106,10 @@ if [ ! -d ~/.go-dirs ]; then
     mkdir ~/.go-dirs
 fi
 
-#open vim once to install Plug 
+#open vim once to install Plug
 vim +qall
-#open vim now to install all plugins 
-vim +PlugInstall +qall
+#open vim now to install all plugins
+vim "+PlugInstall --sync" +qall
 
 output "=============== vimrc and zshrc files are now in your home folder ================="
 output "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
