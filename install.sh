@@ -63,8 +63,8 @@ rm -f ./oh.sh
 #setup softlinks
 output "=============== Setup Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc
-output "\"Add your custom vim settings to this file" > ~/.myvimrc
-output "#Add your custom zsh settings to this file" > ~/.myzshrc
+echo "\"Add your custom vim settings to this file" > ~/.myvimrc
+echo "#Add your custom zsh settings to this file" > ~/.myzshrc
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc
 output "=============== Soft links setup done ================="
