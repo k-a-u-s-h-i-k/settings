@@ -189,7 +189,7 @@ exec evolution
 exec slack
 
 #mail
-exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail.zsh"
+exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail/mail.zsh"
 exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
 
 # Shutdown, reboot, lock screen
