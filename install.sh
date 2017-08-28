@@ -64,16 +64,14 @@ chmod +x oh.sh
 rm -f ./oh.sh
 
 #setup softlinks
-output "=============== Setup Soft Links ================="
+output "=============== Setting up Soft Links ================="
 ln -s ~/.settings/.vimrc ~/.vimrc
 echo "\"Add your custom vim settings to this file" > ~/.myvimrc
 echo "#Add your custom zsh settings to this file" > ~/.myzshrc
 mv ~/.zshrc ~/.zshrc.orig.ohmyzsh
 ln -s ~/.settings/.zshrc ~/.zshrc
-output "=============== Soft links setup done ================="
 
-
-output "=============== Setup cscope maps ====================="
+output "=============== Setting up cscope maps ====================="
 if [ ! -d ~/.vim ]; then
 	mkdir ~/.vim #if ~/.vim dir doesn't exist, create it
 fi
@@ -84,7 +82,7 @@ cd ~/.vim/plugin
 wget http://cscope.sourceforge.net/cscope_maps.vim
 cd - # go back to the previous directory
 
-output "=============== Download badwolf theme ====================="
+output "=============== Downloading badwolf theme ====================="
 if [ ! -d ${HOME}/.vim/colors ]; then
     mkdir ${HOME}/.vim/colors
 fi
@@ -92,7 +90,7 @@ cd ${HOME}/.vim/colors
 wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 cd -
 
-output "=============== Setup Makefile ftplugin ==============="
+output "=============== Setting up Makefile ftplugin ==============="
 if [ ! -d ~/.vim/ftplugin ]; then
 	mkdir ~/.vim/ftplugin
 fi
@@ -101,7 +99,7 @@ cd ~/.vim/ftplugin
 echo "set noexpandtab" > make.vim
 cd -
 
-output "=============== Install vim-gtk to get global clipboard support ==============="
+output "=============== Installing vim-gtk to get global clipboard support ==============="
 sudo apt install vim-gtk -y
 
 output "=============== Setup Go directories ==============="
@@ -113,6 +111,32 @@ fi
 vim +qall
 #open vim now to install all plugins
 vim "+PlugInstall --sync" +qall
+
+output "=============== Install custom font ==============="
+mkdir /tmp/powerline
+cd /tmp/powerline
+git clone https://github.com/powerline/fonts.git
+cd fonts
+#install all fonts
+./install.sh
+
+# uncheck use system font in gnome-terminal
+gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type=boolean false
+# set gnome-terminal to use powerline font
+gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Meslo LG S DZ for Powerline Regular 12"
+
+output "=============== Setting up gnome-terminal to use zsh ==============="
+# find Terminal UUID to settings can be edited
+UUID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')
+
+# enable custom command
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ use-custom-command true
+
+# specify zsh as the custom command to run
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ custom-command /usr/bin/zsh
+
+output "=============== Install custom zsh theme ==============="
+wget https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh -O ~/.oh-my-zsh/themes/spaceship.zsh-theme
 
 output "=============== vimrc and zshrc files are now in your home folder ================="
 output "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
