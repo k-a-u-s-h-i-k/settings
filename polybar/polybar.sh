@@ -11,3 +11,6 @@ sudo apt install libcairo2-dev cmake cmake-data libcairo2-dev libxcb1-dev libxcb
 
 cmake ..
 sudo make install
+
+mkdir ~/.config/polybar
+ln -s ~/.settings/polybar/config ~/.config/polybar/config
