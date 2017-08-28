@@ -6,6 +6,10 @@ sudo apt install ./keyring.deb
 source=$(eval "echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe"")
 echo $source | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
 
+sudo apt update
+
+sudo apt install i3 #install i3
+
 #install compton composite manager (scrolling is not smooth in Firefox) on Nvidia GPUs with i3
 sudo apt install compton
 
@@ -23,5 +27,5 @@ case ${option:-} in
 esac
 
 if [[ ${DEFAULT_SESSION_I3} -gt 0 ]]; then
-	echo "user-session=i3" | sudo tee /etc/lightdm/lightdm.conf
+	echo "user-session=i3" | sudo tee -a /etc/lightdm/lightdm.conf
 fi
