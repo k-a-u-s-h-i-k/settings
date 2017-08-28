@@ -135,6 +135,10 @@ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profi
 # specify zsh as the custom command to run
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ custom-command /usr/bin/zsh
 
+# uncheck use system theme colour gnome-terminal setting
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ use-theme-colors false
+
+
 output "=============== Install custom zsh theme ==============="
 wget https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh -O ~/.oh-my-zsh/themes/spaceship.zsh-theme
 
