@@ -13,6 +13,9 @@ sudo apt install i3 #install i3
 #install compton composite manager (scrolling is not smooth in Firefox) on Nvidia GPUs with i3
 sudo apt install compton
 
+#install xbacklight to control screen brightness from commandline
+sudo apt install -y xbacklight
+
 #copy i3 config files
 if [ ! -d ~/.config/i3 ]; then
 	mkdir -p ~/.config/i3
