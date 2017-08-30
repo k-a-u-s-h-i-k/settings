@@ -1,6 +1,4 @@
-# Start compton on i3 start
-exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
-exec xrandr --output DP2 --primary
+#alt key is the modifier
 set $mod Mod1
 
 #no title bars
@@ -63,6 +61,9 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+#go back to previous workspace with same keystroke
+workspace_auto_back_and_forth yes
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -156,6 +157,22 @@ assign [class="slack"] → 4
 exec firefox
 exec evolution
 exec slack
+
+# Shutdown, reboot, lock screen
+set $Locker i3lock && sleep 1
+set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (u) suspend, (h) hibernate
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym u exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
