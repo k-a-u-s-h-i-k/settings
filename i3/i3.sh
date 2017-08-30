@@ -16,6 +16,9 @@ sudo apt install compton
 #install xbacklight to control screen brightness from commandline
 sudo apt install -y xbacklight
 
+#use feh to manage desktop wallpaper
+sudo apt install -y feh
+
 #copy i3 config files
 if [ ! -d ~/.config/i3 ]; then
 	mkdir -p ~/.config/i3
