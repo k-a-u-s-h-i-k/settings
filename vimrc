@@ -162,3 +162,8 @@ augroup reload_vimrc
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
+" Airline settings
+let g:airline_section_b="" "dont show git hunks
+let g:airline_section_x="" "dont show filetype
+let g:airline_section_y="" "dont show file encoding
+let g:airline_section_z="" "dont show cursor pos info
