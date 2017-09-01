@@ -96,6 +96,8 @@ else
 		Plug 'airblade/vim-gitgutter'
 		Plug 'tpope/vim-fugitive'
 		Plug 'gregsexton/gitv', {'on': ['Gitv']}
+		"rhubarb is used for :Gbrowse command
+		Plug 'tpope/vim-rhubarb'
 
 		"Marks :help signature
 		Plug 'kshenoy/vim-signature'
