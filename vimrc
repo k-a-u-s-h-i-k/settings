@@ -79,7 +79,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 else
 	"plugin installed, load plugins
 	call plug#begin('~/.vim/plugged')
-		" ariline plugin
+		" airline plugin
 		Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
 
