@@ -138,6 +138,8 @@ bindsym $mod+Control+f [class="Firefox"] focus
 bindsym $mod+Control+t [class="X-terminal-emulator"] focus
 bindsym $mod+Control+s [class="Slack"] focus
 bindsym $mod+Control+m [title="mutt"] focus
+bindsym $mod+Control+v [title="VIM$"] focus
+
 
 # increase sound volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
