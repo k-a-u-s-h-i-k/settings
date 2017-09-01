@@ -75,7 +75,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 else
 	"plugin installed, load plugins
 	call plug#begin('~/.vim/plugged')
-		" ariline plugin
+		" airline plugin
 		Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
 
@@ -92,6 +92,8 @@ else
 		Plug 'airblade/vim-gitgutter'
 		Plug 'tpope/vim-fugitive'
 		Plug 'gregsexton/gitv', {'on': ['Gitv']}
+        "rhubarb is used for :Gbrowse command
+		Plug 'tpope/vim-rhubarb'
 
 		"Marks :help signature
 		Plug 'kshenoy/vim-signature'
