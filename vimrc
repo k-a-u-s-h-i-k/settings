@@ -96,6 +96,9 @@ else
 		Plug 'airblade/vim-gitgutter'
 		Plug 'tpope/vim-fugitive'
 		Plug 'gregsexton/gitv', {'on': ['Gitv']}
+
+		"Marks :help signature
+		Plug 'kshenoy/vim-signature'
 	call plug#end()
 endif
 
