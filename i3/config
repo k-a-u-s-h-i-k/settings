@@ -170,13 +170,14 @@ exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.
 exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
 
 # Shutdown, reboot, lock screen
-set $Locker i3lock && sleep 1
+# In order to make shutdown and suspend work, look up sudo visudo syntax
+set $Locker ~/.settings/lock.sh 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (u) suspend, (h) hibernate
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym u exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym u exec --no-startup-id $Locker && sudo systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && sudo systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
