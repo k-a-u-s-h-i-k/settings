@@ -108,56 +108,71 @@ alias zshrc='vim ~/.myzshrc'
 #
 # To go to this direcoty from any other directory
 # go <name of bookmark>
+# or
+# ~<name of bookmark>
 #
 # To delete a bookmark
 # unsave <name of bookmark>
-#
-# To move to a directory using pushd
-# pgo <name of bookmark>
-#
-# To move to the previous directory on the stack
-# popd
 #
 # ex.
 # cd /tmp
 # save tmp
 # cd ~
 # go tmp
-# cd ~
-# pgo tmp
-# popd
 # unsave tmp
 #
-function go {
-	if [ "x$1" = "x" ]; then
-		echo "Directories:"
-		for i in ~/.go-dirs/*
-		do
-			printf "%20s %s\n" `basename $i` `cat $i`
-		done
-	else
-		cd `cat ~/.go-dirs/$1`
-	fi
+export MARKPATH=$HOME/.go-dirs
+
+# Populate the hash for dir bookmarks
+for link ($MARKPATH/*(N@)) {
+	hash -d -- ${link:t}=${link:A}
 }
 
-function pgo {
-	if [ "x$1" = "x" ]; then
-		echo "Missing argument"
+function go {
+	if [ $1 -z ]; then
+		#no arguments given
+		hash -d
 	else
-		pushd `cat ~/.go-dirs/$1`
+		~$1
 	fi
 }
 
 function save {
-	if [ "x$1" = "x" ]; then
-		echo "Missing argument"
+	if [ $1 -z ]; then
+		#no arguments given
+		echo "ERROR: Missing argument\n"
+		echo "usage:"
+		echo "save <name_of_bookmark>"
 	else
-		pwd > ~/.go-dirs/$1
+		ln -s $PWD $MARKPATH/$1
+		hash -d -- $1=$PWD
 	fi
 }
 
 function unsave {
-	rm -v ~/.go-dirs/$1
+	rm -Ivf ~/.go-dirs/$1
+}
+
+# Function for always using one (and only one) vim server
+# If you really want a new vim session, simply do not pass any argument to this function.
+function v {
+	vim_orig=$(which 2>/dev/null vim)
+	if [ -z $vim_orig ]; then
+		echo "$SHELL: vim: command not found"
+		return 127;
+	fi
+	$vim_orig --serverlist | grep -q VIM
+	# If there is already a vimserver, use it
+	# unless no args were given
+	if [ $? -eq 0 ]; then
+		if [ $# -eq 0 ]; then
+			$vim_orig
+		else
+			$vim_orig --remote "$@"
+		fi
+	else
+		$vim_orig --servername vim "$@"
+	fi
 }
 
 # Function for always using one (and only one) vim server
