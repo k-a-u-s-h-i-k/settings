@@ -97,8 +97,6 @@ alias mru='make run'
 alias mr='make report'
 alias mrc='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
-alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
-alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias vimrc='vim ~/.myvimrc'
 alias zshrc='vim ~/.myzshrc'
 
