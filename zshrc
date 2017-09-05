@@ -49,36 +49,36 @@ export SVN_EDITOR=vim
 export CCACHE_DIR=$HOME/Work/ccache
 export USE_CCACHE=1
 
-function go {
-	if [ "x$1" = "x" ]; then
-		echo "Directories:"
-		for i in ~/.go-dirs/*
-		do
-			printf "%20s %s\n" `basename $i` `cat $i`
-		done
-	else
-		cd `cat ~/.go-dirs/$1`
-	fi
+export MARKPATH=$HOME/.go-dirs
+
+# Populate the hash for dir bookmarks
+for link ($MARKPATH/*(N@)) {
+	hash -d -- ${link:t}=${link:A}
 }
 
-function pgo {
-	if [ "x$1" = "x" ]; then
-		echo "Missing argument"
+function go {
+	if [ $1 -z ]; then
+		#no arguments given
+		hash -d
 	else
-		pushd `cat ~/.go-dirs/$1`
+		~$1
 	fi
 }
 
 function save {
-	if [ "x$1" = "x" ]; then
-		echo "Missing argument"
+	if [ $1 -z ]; then
+		#no arguments given
+		echo "ERROR: Missing argument\n"
+		echo "usage:"
+		echo "save <name_of_bookmark>"
 	else
-		pwd > ~/.go-dirs/$1
+		ln -s $PWD $MARKPATH/$1
+		hash -d -- $1=$PWD
 	fi
 }
 
 function unsave {
-	rm -v ~/.go-dirs/$1
+	rm -Ivf ~/.go-dirs/$1
 }
 
 # Function for always using one (and only one) vim server
