@@ -57,7 +57,7 @@ for link ($MARKPATH/*(N@)) {
 }
 
 function go {
-	if [ $1 -z ]; then
+	if [ -z "$1" ]; then
 		#no arguments given
 		hash -d
 	else
@@ -66,7 +66,7 @@ function go {
 }
 
 function save {
-	if [ $1 -z ]; then
+	if [ -z "$1" ]; then
 		#no arguments given
 		echo "ERROR: Missing argument\n"
 		echo "usage:"
@@ -78,7 +78,14 @@ function save {
 }
 
 function unsave {
-	rm -Ivf ~/.go-dirs/$1
+	if [ -z "$1" ]; then
+		#no arguments given
+		echo "ERROR: Missing argument\n"
+		echo "usage:"
+		echo "unsave <name_of_bookmark>"
+	else
+		rm -Ivf ~/.go-dirs/$1
+	fi
 }
 
 # Function for always using one (and only one) vim server
