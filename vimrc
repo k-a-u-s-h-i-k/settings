@@ -69,7 +69,7 @@ vmap <Leader>P "+P
 noremap <Leader>m :!make <enter>
 "leader + c to run make clean on the terminal
 noremap <Leader>c :!make clean <enter>
-"leader + r to run make run on the terminal
+"leader + u to run make run on the terminal
 noremap <Leader>u :!make run <enter>
 "leader + r to run make report on the terminal
 noremap <Leader>r :!make report <enter>
