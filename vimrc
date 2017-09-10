@@ -28,6 +28,11 @@ set sessionoptions-=options "when a session is saved, do not store vimrc options
 set autoread "reread file if an external program has changed a file
 autocmd Filetype c setlocal textwidth=132  "max 132 characters in a line for c files
 
+"set default shell within vim to zsh
+if !empty(glob('/usr/bin/zsh'))
+    set shell=/usr/bin/zsh
+endif
+
 "disable arrow keys in normal mode (use hjkl instead)
 map <up> <nop>
 map <down> <nop>
