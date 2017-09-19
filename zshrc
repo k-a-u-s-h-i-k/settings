@@ -126,7 +126,7 @@ function battery_prompt()
 			echo -n "%{$fg_bold[$color]%}BATTERY TOO LOW. CHARGE BATTERY ASAP! "
 		fi
 
-		echo -n "%{$fg_bold[$color]%}[$battery%%]"
+		echo -n "%{$fg_bold[$color]%}[$battery%%]%{$reset_color%}"
 	fi
 }
 
