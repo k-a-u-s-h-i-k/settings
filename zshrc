@@ -110,11 +110,33 @@ function v {
 	fi
 }
 
-#export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated 
+function battery_prompt()
+{
+	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
+	if [[ $charging -gt 0 ]]; then
+		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
+		if [ $battery -gt 50 ] ; then
+			color='green'
+		elif [ $battery -gt 20 ] ; then
+			color='yellow'
+		elif [ $battery -gt 10 ] ; then
+			color='red'
+		else
+			color='red'
+			echo -n "%{$fg_bold[$color]%}BATTERY TOO LOW. CHARGE BATTERY ASAP! "
+		fi
+
+		echo -n "%{$fg_bold[$color]%}[$battery%%]"
+	fi
+}
+
+#export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
 export EDITOR=`which vim` #ZSH default editor
 export TERM=xterm-256color
 
+#set the right prompt in zsh to show laptop battery %
+RPROMPT=$(battery_prompt)
 
 #------------------------------  POWERLINE --------------------------------------
 #if [[ -a ${HOME}/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
@@ -122,7 +144,7 @@ export TERM=xterm-256color
 #fi
 
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine 
+# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine
 export DEFAULT_USER=$USER
 POWERLEVEL9K_TIME_FOREGROUND='black'
 POWERLEVEL9K_TIME_BACKGROUND='202'
