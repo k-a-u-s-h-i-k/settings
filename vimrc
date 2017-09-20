@@ -76,7 +76,6 @@ noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open myvimrc file in a vsplit
 nnoremap <leader>v :vsplit ~/.myvimrc<cr>
 
-
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -172,6 +171,15 @@ augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
+
+" Airline settings
+let g:airline_section_b="" "dont show git hunks
+let g:airline_section_x="" "dont show filetype
+let g:airline_section_y="" "dont show file encoding
+let g:airline_section_z="" "dont show cursor pos info
+
+" GitGutter settings
+let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
 
 " Add custom vim settings
 source $HOME/.myvimrc
