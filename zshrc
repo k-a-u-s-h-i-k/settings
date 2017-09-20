@@ -202,6 +202,26 @@ function v {
 	fi
 }
 
+function battery_prompt()
+{
+	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
+	if [[ $charging -gt 0 ]]; then
+		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
+		if [ $battery -gt 50 ] ; then
+			color='green'
+		elif [ $battery -gt 20 ] ; then
+			color='yellow'
+		elif [ $battery -gt 10 ] ; then
+			color='red'
+		else
+			color='red'
+			echo -n "%{$fg_bold[$color]%}BATTERY TOO LOW. CHARGE BATTERY ASAP! "
+		fi
+
+		echo -n "%{$fg_bold[$color]%}[$battery%%]%{$reset_color%}"
+	fi
+}
+
 #zsh vi keybindings
 bindkey -v
 
@@ -214,6 +234,8 @@ setopt correct
 
 #ZSH default editor
 export EDITOR=`which vim`
+#set the right prompt in zsh to show laptop battery %
+RPROMPT=$(battery_prompt)
 
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 # zsh theme powerlevel9k requires this so the prompt doesn't show username@machine
