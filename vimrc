@@ -77,6 +77,8 @@ noremap <Leader>r :!make report <enter>
 noremap <Leader>n :!make clean && make report <enter>
 "save current session
 noremap <silent> <Leader>s :mksession <enter>
+"leader + v to open vimrc file in a vsplit
+nnoremap <leader>v :vsplit $MYVIMRC<cr>
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
@@ -179,3 +181,6 @@ let g:airline_section_b="" "dont show git hunks
 let g:airline_section_x="" "dont show filetype
 let g:airline_section_y="" "dont show file encoding
 let g:airline_section_z="" "dont show cursor pos info
+
+" GitGutter settings
+let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
