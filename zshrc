@@ -130,6 +130,17 @@ function battery_prompt()
 	fi
 }
 
+#patchrb <review id>
+function patchrb()
+{
+	go hyp
+	gcm
+	git checkout -b $1
+	rbt patch --print $1 > /tmp/$1.patch
+	patch -p0 -i /tmp/$1.patch
+}
+
+
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
 export EDITOR=`which vim` #ZSH default editor
