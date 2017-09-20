@@ -73,6 +73,9 @@ noremap <Leader>r :!make report <enter>
 noremap <Leader>n :!make clean && make report <enter>
 "save current session
 noremap <silent> <Leader>s :mksession <enter>
+"leader + v to open myvimrc file in a vsplit
+nnoremap <leader>v :vsplit ~/.myvimrc<cr>
+
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
