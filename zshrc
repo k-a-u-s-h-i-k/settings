@@ -26,7 +26,6 @@ alias i3c='vim ${HOME}/.settings/i3/config'
 alias vpn='/opt/cisco/anyconnect/bin/vpnui'
 alias per='vim ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
 alias muttrc='vim ${HOME}/.mutt/muttrc'
-alias e='emacsclient -c'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
@@ -141,6 +140,11 @@ function patchrb()
 	patch -p0 -i /tmp/$1.patch
 }
 
+#open emacs client in the background
+function e()
+{
+  emacsclient -c $1 &
+}
 
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
