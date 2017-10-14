@@ -94,9 +94,6 @@ else
 		Plug 'vim-airline/vim-airline'
 		Plug 'vim-airline/vim-airline-themes'
 
-		"Buffers in status line
-		Plug 'bling/vim-bufferline'
-
 		"Plugins to support snips
 		Plug 'MarcWeber/vim-addon-mw-utils'
 		Plug 'tomtom/tlib_vim'
