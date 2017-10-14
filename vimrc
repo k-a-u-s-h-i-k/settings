@@ -71,6 +71,8 @@ noremap <Leader>u :!make run <enter>
 noremap <Leader>r :!make report <enter>
 "leader + n to run make clean && make report on the terminal
 noremap <Leader>n :!make clean && make report <enter>
+"leader + i to run make install
+noremap <Leader>i :!make install <enter>
 "save current session
 noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open myvimrc file in a vsplit
