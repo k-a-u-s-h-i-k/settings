@@ -172,13 +172,30 @@ augroup reload_vimrc
 augroup END
 
 " Airline settings
-let g:airline_section_b="" "dont show git hunks
-let g:airline_section_x="" "dont show filetype
-let g:airline_section_y="" "dont show file encoding
-let g:airline_section_z="" "dont show cursor pos info
+"let g:airline_section_b="" "dont show git hunks
+"let g:airline_section_x="" "dont show filetype
+"let g:airline_section_y="" "dont show file encoding
+"let g:airline_section_z="" "dont show cursor pos info
+let g:airline#extensions#tabline#enabled = 1 "enable buffer line at the top
+let g:airline#extensions#tabline#buffer_min_count = 2 "show buffer line only when at least 2 buffers are open
+let g:airline#extensions#tabline#buffer_idx_mode = 1 "show numbers in buffer line
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
 
 " GitGutter settings
 let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
+
+"syn match cCustomFunc /\w\+\s*(/me=e-1,he=e-1
+"hi def link cCustomFunc Function
 
 " Add custom vim settings
 source $HOME/.myvimrc
