@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#exit script on any failure
+set -e
+
 mkdir /tmp/i3 && cd /tmp/i3
 /usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2017.01.02_all.deb keyring.deb SHA256:4c3c6685b1181d83efe3a479c5ae38a2a44e23add55e16a328b8c8560bf05e5f
 sudo apt install ./keyring.deb
@@ -35,3 +38,7 @@ esac
 if [[ ${DEFAULT_SESSION_I3} -gt 0 ]]; then
 	echo "user-session=i3" | sudo tee -a /etc/lightdm/lightdm.conf
 fi
+
+echo -n ""
+echo -n ""
+echo "Successfully installed i3 wm"
