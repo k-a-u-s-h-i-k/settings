@@ -146,6 +146,12 @@ function e()
   emacsclient -c $1 &
 }
 
+#start emacs in daemon mode if not already started
+emacs=$(pgrep emacs)
+if [ -z $emacs ]; then
+	emacs --daemon > /dev/null 2>&1 &
+fi
+
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
 export EDITOR=`which vim` #ZSH default editor

@@ -164,7 +164,6 @@ exec i3-sensible-terminal
 exec firefox
 exec evolution
 exec slack
-exec emacs --daemon
 
 #mail
 exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail/mail.zsh"
