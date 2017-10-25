@@ -160,6 +160,9 @@ exec firefox
 exec evolution
 exec slack
 
+# after 5 minutes of inactivity, turn off the screen
+exec --no-startup-id xset dpms 300 0 0
+
 # Shutdown, reboot, lock screen
 set $Locker i3lock && sleep 1
 set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (u) suspend, (h) hibernate
