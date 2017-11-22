@@ -4,8 +4,6 @@ exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 exec ~/.settings/dock.sh
 # Start my custom bar at the top
 exec --no-startup-id polybar example
-# Set background wallpaper
-exec --no-startup-id feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
 # turn off screen after 3 minutes of activity
 exec --no-startup-id xset dpms 180 0 0
 #show wifi drop down menu in dock

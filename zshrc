@@ -150,6 +150,8 @@ function e()
 emacs=$(pgrep emacs)
 if [ -z $emacs ]; then
 	emacs --daemon > /dev/null 2>&1 &
+	# Set background wallpaper only the first time
+	feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
 fi
 
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
