@@ -129,19 +129,8 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type=b
 # set gnome-terminal to use powerline font
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Meslo LG S DZ for Powerline Regular 12"
 
-output "=============== Setting up gnome-terminal to use zsh ==============="
-# find Terminal UUID to settings can be edited
-UUID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')
-
-# enable custom command
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ use-custom-command true
-
-# specify zsh as the custom command to run
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ custom-command /usr/bin/zsh
-
-# uncheck use system theme colour gnome-terminal setting
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${UUID}/ use-theme-colors false
-
+output "=============== Setting up Terminator ==============="
+~/.settings/terminator/terminator.sh
 
 output "=============== Install custom zsh theme ==============="
 wget https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh -O ~/.oh-my-zsh/themes/spaceship.zsh-theme
