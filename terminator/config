@@ -1,0 +1,40 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+[keybindings]
+  copy = <Primary><Shift>c
+  paste = <Primary><Shift>v
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#121212"
+    background_darkness = 0.89
+    background_image = None
+    background_type = transparent
+    cursor_color = "#c20257"
+    custom_command = /usr/bin/zsh
+    font = Meslo LG S DZ for Powerline 13
+    foreground_color = "#c73ebf"
+    palette = "#181915:#b50050:#98fe24:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#ff2500:#af5fff:#5cd1f8:#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_custom_command = True
+    use_system_font = False
+  [[terminator_default]]
+    background_darkness = 0.75
+    background_image = None
+    custom_command = /usr/bin/zsh
+    font = Meslo LG S DZ for Powerline 12
+    foreground_color = "#00ff00"
+    scrollback_infinite = True
+    show_titlebar = False
+    use_custom_command = True
+    use_system_font = False
