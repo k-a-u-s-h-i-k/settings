@@ -34,6 +34,8 @@ output()
 	printf "${NORMAL}"
 }
 
+output "============== Installing Git =========================="
+
 if [ -z "${git_prog}" ]; then
     output "============== Installing Git =========================="
 	sudo $PKGMGR git -y
@@ -66,7 +68,7 @@ fi
 
 #Install Oh my Zsh
 output "=============== Installing OH MY ZSH ================="
-wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O oh.sh
+curl https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > oh.sh
 sed -i '/env zsh/d' oh.sh
 sed -i '/chsh -s/d' oh.sh
 chmod +x oh.sh
@@ -89,7 +91,7 @@ if [ ! -d ~/.vim/plugin ]; then
 	mkdir ~/.vim/plugin #if plugin dir doesn't exist, create it
 fi
 cd ~/.vim/plugin
-wget http://cscope.sourceforge.net/cscope_maps.vim
+curl -O http://cscope.sourceforge.net/cscope_maps.vim
 cd - # go back to the previous directory
 
 output "=============== Downloading badwolf theme ====================="
@@ -97,7 +99,7 @@ if [ ! -d ${HOME}/.vim/colors ]; then
     mkdir ${HOME}/.vim/colors
 fi
 cd ${HOME}/.vim/colors
-wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
+curl -O https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 cd -
 
 output "=============== Setting up Makefile ftplugin ==============="
@@ -110,7 +112,7 @@ echo "set noexpandtab" > make.vim
 cd -
 
 output "=============== Installing vim-gtk to get global clipboard support ==============="
-if [ $OS == "ubuntu" ]; then
+if [ "$OS" == "ubuntu" ]; then
     sudo $PKGMGR vim-gtk
 fi
 
@@ -136,7 +138,7 @@ output "=============== Setting up Terminator ==============="
 ~/.settings/terminator/terminator.sh
 
 output "=============== Install custom zsh theme ==============="
-wget https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh -O ~/.oh-my-zsh/themes/spaceship.zsh-theme
+curl https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh > ~/.oh-my-zsh/themes/spaceship.zsh-theme
 
 output "=============== vimrc and zshrc files are now in your home folder ================="
 output "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
