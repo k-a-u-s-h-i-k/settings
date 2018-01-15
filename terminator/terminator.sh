@@ -1,10 +1,11 @@
 #!/bin/bash
 
+~/.settings/common.sh
+
 #exit script on any failure
 set -e
 
-sudo apt update
-sudo apt install terminator #install terminator 
+sudo $PKGMGR terminator #install terminator 
 
 #create config directory if it does not exist 
 if [ ! -d ~/.config/terminator ]; then

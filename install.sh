@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+~/.settings/common.sh
 
 pwd=`pwd`
 git_prog=`command -v git`
@@ -34,14 +36,18 @@ output()
 
 if [ -z "${git_prog}" ]; then
     output "============== Installing Git =========================="
-	sudo apt-get install git -y
+	sudo $PKGMGR git -y
 fi
 
 output "============== Installing Ag =========================="
-sudo apt install -y silversearcher-ag
+if [ $OS == "arch" ]; then
+    sudo $PKGMGR the_silver_searcher
+else
+sudo $PKGMGR silversearcher-ag
+fi
 
 output "============== Installing ACPI utility =========================="
-sudo apt install -y acpi
+sudo $PKGMGR acpi
 
 
 #clone my repo
@@ -55,7 +61,7 @@ git checkout coop
 #install zsh if not installed
 if [ -z "${zsh_prog}" ]; then
 	output "=============== Installing ZSH ================="
-	sudo apt-get install zsh -y
+	sudo $PKGMGR zsh
 fi
 
 #Install Oh my Zsh
@@ -104,7 +110,9 @@ echo "set noexpandtab" > make.vim
 cd -
 
 output "=============== Installing vim-gtk to get global clipboard support ==============="
-sudo apt install vim-gtk -y
+if [ $OS == "ubuntu" ]; then
+    sudo $PKGMGR vim-gtk
+fi
 
 output "=============== Setup Go directories ==============="
 if [ ! -d ~/.go-dirs ]; then
