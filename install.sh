@@ -40,10 +40,11 @@ if [ -z "${git_prog}" ]; then
 fi
 
 output "============== Installing Ag =========================="
-if [ $OS == "arch" ]; then
+if [ "$OS" == "arch" ]; then
+    exit
     sudo $PKGMGR the_silver_searcher
 else
-sudo $PKGMGR silversearcher-ag
+    sudo $PKGMGR silversearcher-ag
 fi
 
 output "============== Installing ACPI utility =========================="
