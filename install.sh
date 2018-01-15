@@ -34,12 +34,14 @@ output()
 	printf "${NORMAL}"
 }
 
-output "============== Installing Git =========================="
 
 if [ -z "${git_prog}" ]; then
     output "============== Installing Git =========================="
-	sudo $PKGMGR git -y
+	sudo $PKGMGR git
 fi
+
+output "============== Installing VIM =========================="
+sudo $PKGMGR vim
 
 output "============== Installing Ag =========================="
 if [ "$OS" == "arch" ]; then

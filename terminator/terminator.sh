@@ -1,6 +1,6 @@
 #!/bin/bash
 
-~/.settings/common.sh
+. ~/.settings/common.sh
 
 #exit script on any failure
 set -e
