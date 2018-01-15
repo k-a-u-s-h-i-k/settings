@@ -1,6 +1,6 @@
 #!/bin/bash
 
-~/.settings/common.sh
+. ~/.settings/common.sh
 
 pwd=`pwd`
 git_prog=`command -v git`
@@ -41,7 +41,6 @@ fi
 
 output "============== Installing Ag =========================="
 if [ "$OS" == "arch" ]; then
-    exit
     sudo $PKGMGR the_silver_searcher
 else
     sudo $PKGMGR silversearcher-ag
