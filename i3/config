@@ -1,3 +1,4 @@
+exec --no-startup-id polybar example
 #alt key is the modifier
 set $mod Mod1
 
