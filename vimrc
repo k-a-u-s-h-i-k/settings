@@ -195,6 +195,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 
+" Allow saving of files as sudo when forgetting to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " GitGutter settings
 let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
 
