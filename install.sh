@@ -19,6 +19,7 @@ fi
 pwd=`pwd`
 git_prog=`command -v git`
 zsh_prog=`command -v zsh`
+curl_prog=`command -v curl`
 
 # Use colors, but only if connected to a terminal, and that terminal supports them.
 if which tput >/dev/null 2>&1; then
@@ -48,6 +49,10 @@ output()
 	printf "${NORMAL}"
 }
 
+if [ -z "${curl_prog}" ]; then
+    output "============== Installing Curl =========================="
+	sudo $PKGMGR curl
+fi
 
 if [ -z "${git_prog}" ]; then
     output "============== Installing Git =========================="
