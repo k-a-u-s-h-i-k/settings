@@ -97,8 +97,10 @@ alias mru='make run'
 alias mr='make report'
 alias mrc='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
-alias vimrc='vim ~/.myvimrc'
-alias zshrc='vim ~/.myzshrc'
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
+alias myvimrc='vim ~/.myvimrc'
+alias myzshrc='vim ~/.myzshrc'
 
 # usage:
 # Go to a folder to save as a bookmark
