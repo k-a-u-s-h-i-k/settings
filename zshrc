@@ -72,6 +72,10 @@ function save {
 		echo "usage:"
 		echo "save <name_of_bookmark>"
 	else
+        if [ -h "$MARKPATH/$1" ]; then
+            #if soft link exists, delete before creating new soft link with the same name
+            rm -rf $MARKPATH/$1
+        fi
 		ln -s $PWD $MARKPATH/$1
 		hash -d -- $1=$PWD
 	fi
@@ -84,7 +88,11 @@ function unsave {
 		echo "usage:"
 		echo "unsave <name_of_bookmark>"
 	else
-		rm -Ivf ~/.go-dirs/$1
+        #if bookmark exists in hash table, then remove
+        if [ -h "$MARKPATH/$1" ]; then
+            rm -If ~/.go-dirs/$1
+            unhash -d $1
+        fi
 	fi
 }
 
