@@ -234,13 +234,6 @@ export SVN_EDITOR=`which vim`
 #set the right prompt in zsh to show laptop battery %
 RPROMPT=$(battery_prompt)
 
-#---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine
-export DEFAULT_USER=$USER
-POWERLEVEL9K_TIME_FOREGROUND='black'
-POWERLEVEL9K_TIME_BACKGROUND='202'
-#---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-
 if [ -e "$HOME/.myzshrc" ]; then
     source $HOME/.myzshrc
 fi
