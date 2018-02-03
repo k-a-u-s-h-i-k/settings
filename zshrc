@@ -56,7 +56,9 @@ plugins=(git common-aliases svn-fast-info vi-mode z colored-man-pages)
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+if [ -e "$ZSH/oh-my-zsh.sh" ]; then
+    source $ZSH/oh-my-zsh.sh
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -222,6 +224,7 @@ setopt correct
 
 #ZSH default editor
 export EDITOR=`which vim`
+export SVN_EDITOR=`which vim`
 #set the right prompt in zsh to show laptop battery %
 RPROMPT=$(battery_prompt)
 
@@ -232,4 +235,6 @@ POWERLEVEL9K_TIME_FOREGROUND='black'
 POWERLEVEL9K_TIME_BACKGROUND='202'
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 
-source $HOME/.myzshrc
+if [ -e "$HOME/.myzshrc" ]; then
+    source $HOME/.myzshrc
+fi
