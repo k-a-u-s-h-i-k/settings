@@ -87,7 +87,6 @@ fi
 #
 
 #---------------------  CUSTOM OPTIONS ------------------------------
-export SVN_EDITOR=vim
 alias cls=clear
 alias ll='ls -l'
 alias la='ls -a'
@@ -103,6 +102,7 @@ alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias myvimrc='vim ~/.myvimrc'
 alias myzshrc='vim ~/.myzshrc'
+alias vi='vim'
 
 # usage:
 # Go to a folder to save as a bookmark
@@ -194,6 +194,12 @@ function v {
 
 function battery_prompt()
 {
+    ACPI=command -v acpi
+    if [ -z "$ACPI" ]; then
+        #return 1 if ACPI command does not exist
+        return 1
+    fi
+
 	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
 	if [[ $charging -gt 0 ]]; then
 		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
