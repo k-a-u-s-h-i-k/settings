@@ -29,7 +29,9 @@ alias muttrc='vim ${HOME}/.mutt/muttrc'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
-source $ZSH/custom/personal/personal.sh
+if [ -e ${ZSH}/custom/personal/personal.sh ]; then
+	source $ZSH/custom/personal/personal.sh
+fi
 
 #---------------------  ZSH OPTIONS ------------------------------
 export KEYTIMEOUT=1 #reduce esc key timeout in vim mode to 0.1 seconds
@@ -154,12 +156,18 @@ function e()
   emacsclient -c $1 &
 }
 
-#start emacs in daemon mode if not already started
-emacs=$(pgrep emacs)
-if [ -z $emacs ]; then
-	emacs --daemon > /dev/null 2>&1 &
-	# Set background wallpaper only the first time
-	feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
+#check if emacs is available on the system
+emacs=$(command -v emacs)
+if [ ! -z $emacs ]; then
+	emacs=$(pgrep emacs)
+	#start emacs in daemon mode if not already started
+	if [ -z $emacs ]; then
+		emacs --daemon > /dev/null 2>&1 &
+		# Set background wallpaper only the first time
+		if [ -d ${HOME}/Pictures/wallpapers ]; then
+			feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
+		fi
+	fi
 fi
 
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
@@ -183,4 +191,6 @@ POWERLEVEL9K_TIME_BACKGROUND='202'
 #---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
 
 # ZSH Syntax Highlighting note this should be the last entry
-source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
