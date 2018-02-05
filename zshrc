@@ -194,7 +194,7 @@ function v {
 
 function battery_prompt()
 {
-    ACPI=command -v acpi
+    ACPI=$(command -v acpi)
     if [ -z "$ACPI" ]; then
         #return 1 if ACPI command does not exist
         return 1
