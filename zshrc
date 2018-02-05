@@ -183,18 +183,6 @@ export TERM=xterm-256color
 #set the right prompt in zsh to show laptop battery %
 RPROMPT=$(battery_prompt)
 
-#------------------------------  POWERLINE --------------------------------------
-#if [[ -a ${HOME}/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-#	source ${HOME}/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-#fi
-
-#---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-# zsh theme powerlevel9k requires this so the prompt doesn't show username@machine
-export DEFAULT_USER=$USER
-POWERLEVEL9K_TIME_FOREGROUND='black'
-POWERLEVEL9K_TIME_BACKGROUND='202'
-#---------------------  POWERLEVEL9K THEME OPTIONS ------------------------------
-
 # ZSH Syntax Highlighting note this should be the last entry
 if [ -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
