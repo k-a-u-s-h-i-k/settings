@@ -122,6 +122,11 @@ function v {
 
 function battery_prompt()
 {
+	#if acpi utility does not exist, do not show battery in zsh shell
+	ACPI=$(command -v acpi)
+	if [ -z ACPI ]; then
+		return 1;
+	fi
 	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
 	if [[ $charging -gt 0 ]]; then
 		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
