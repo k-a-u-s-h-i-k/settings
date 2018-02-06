@@ -28,6 +28,9 @@ if [ ! -d ~/.config/i3 ]; then
 fi
 ln -s ~/.settings/i3/config ~/.config/i3/config
 
+# make sure nautilus never shows the desktop
+gsettings set org.gnome.desktop.background show-desktop-icons false
+
 read -s -n 1 -r -p "Would you like to make i3 your default login session? (y)es or (n)o? " option
 case ${option:-} in
 	[yY] ) DEFAULT_SESSION_I3=1 ;;
