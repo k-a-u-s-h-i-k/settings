@@ -53,7 +53,7 @@ font-3 = Source Han Sans JP:size=10;1
 
 modules-left = i3
 modules-center = email 
-modules-right = xbacklight volume memory cpu wlan eth battery date 
+modules-right = xbacklight volume wlan eth battery date
 
 tray-position = right
 tray-padding = 2
