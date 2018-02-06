@@ -1,4 +1,8 @@
 #exec --no-startup-id polybar example
+
+#example xrandr line to configure your monitors
+#exec xrandr --output eDP1 --auto --right-of HDMI3 --output VGA1 --auto --left-of HDMI3
+
 #alt key is the modifier
 set $mod Mod1
 
