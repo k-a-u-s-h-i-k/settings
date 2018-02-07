@@ -2,8 +2,6 @@
 exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 # Set multi-monitor settings
 exec ~/.settings/dock.sh
-# Start my custom bar at the top
-exec --no-startup-id polybar example
 # turn off screen after 3 minutes of activity
 exec --no-startup-id xset dpms 180 0 0
 #show wifi drop down menu in dock
@@ -166,6 +164,8 @@ exec slack
 #mail
 exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail/mail.zsh"
 exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
+# Start my custom bar at the top
+exec --no-startup-id polybar example
 
 # Shutdown, reboot, lock screen
 # In order to make shutdown and suspend work, look up sudo visudo syntax
