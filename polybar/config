@@ -52,8 +52,8 @@ font-2 = Cousine for Powerline:size=10;2
 font-3 = Source Han Sans JP:size=10;1
 
 modules-left = i3
-modules-center = email 
-modules-right = xbacklight volume memory cpu wlan eth battery date 
+modules-center =
+modules-right = xbacklight volume memory cpu wlan eth battery date
 
 tray-position = right
 tray-padding = 2
@@ -335,14 +335,6 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
-
-[module/email]
-type = custom/script
-format-prefix = "  "
-exec = ~/.settings/mail/email_count.sh
-format = <label> 
-interval = 60 
-format-underline = #93ff33 
 
 [module/powermenu]
 type = custom/menu
