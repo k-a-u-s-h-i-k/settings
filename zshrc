@@ -231,6 +231,8 @@ setopt correct
 #ZSH default editor
 export EDITOR=`which vim`
 export SVN_EDITOR=`which vim`
+#enable 256 colour support
+export TERM=xterm-256color
 #set the right prompt in zsh to show laptop battery %
 RPROMPT=$(battery_prompt)
 
