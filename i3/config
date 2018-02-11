@@ -6,7 +6,7 @@ exec ~/.settings/dock.sh
 exec --no-startup-id xset dpms 180 0 0
 #show wifi drop down menu in dock
 #exec nm-applet
-set $mod Mod1
+set $mod Mod4
 
 # no title bars
 new_window none
