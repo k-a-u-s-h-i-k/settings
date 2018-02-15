@@ -168,11 +168,15 @@ if [ ! -z $emacs ]; then
 	#start emacs in daemon mode if not already started
 	if [ -z $emacs ]; then
 		emacs --daemon > /dev/null 2>&1 &
-		# Set background wallpaper only the first time
-		if [ -d ${HOME}/Pictures/wallpapers ]; then
-			feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
-		fi
 	fi
+fi
+
+# Set background wallpaper only the first time
+if [ ! -e /tmp/wallpaper ]; then
+    touch /tmp/wallpaper
+    if [ -d ${HOME}/Pictures/wallpapers ]; then
+        feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
+    fi
 fi
 
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
