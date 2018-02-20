@@ -140,7 +140,7 @@ mode "resize" {
 
 # Colours
 # class                 border  bground text    indicator child_border
-client.focused          #000000 #7F18D8 #FFFFFF #551C60   #C20257
+client.focused          #000000 #C20257 #FFFFFF #551C60   #C20257
 
 #show border around currently focused window
 for_window [class="^.*"] border pixel 3
