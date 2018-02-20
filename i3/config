@@ -28,7 +28,14 @@ bindsym $mod+d exec dmenu_run -nf '#FFFFFF' -nb '#000000' -sb '#7F18D8' -sf '#FF
 
 # Colours
 # class                 border  bground text    indicator child_border
-client.focused          #000000 #7F18D8 #FFFFFF #2E9EF4   #285577
+client.focused          #000000 #7F18D8 #FFFFFF #551C60   #C20257
+
+#show border around currently focused window
+for_window [class="^.*"] border pixel 3
+#except
+for_window [class="Firefox"] border pixel 0 
+for_window [class="Slack"] border pixel 0 
+for_window [class="Evolution"] border pixel 0 
 
 # change focus
 bindsym $mod+h focus left
