@@ -162,9 +162,9 @@ bindsym $mod+Control+v [title="VIM$"] focus
 assign [class="Firefox"] → 2:Web
 assign [class="Evolution"] → 3:Mail
 assign [class="Slack"] → 4:Comm
-assign [title="Weechat*"] → 4:Comm
 assign [title="davmail_offlineimap"] → 3:Mail
 assign [title="mutt"] → 3:Mail
+assign [class="Emacs"] → 5:Emacs
 
 exec i3-sensible-terminal
 exec firefox
