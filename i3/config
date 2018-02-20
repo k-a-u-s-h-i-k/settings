@@ -139,6 +139,7 @@ mode "resize" {
 }
 
 # Colours
+# https://thomashunter.name/i3-configurator/
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #C20257 #FFFFFF #551C60   #C20257
 client.unfocused        #000000 #000000 #FFFFFF #551C60   #000000
