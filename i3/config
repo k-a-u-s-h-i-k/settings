@@ -141,6 +141,7 @@ mode "resize" {
 # Colours
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #C20257 #FFFFFF #551C60   #C20257
+client.unfocused        #000000 #000000 #FFFFFF #551C60   #000000
 
 #show border around currently focused window
 for_window [class="^.*"] border pixel 3
@@ -160,6 +161,7 @@ bindsym $mod+Control+v [title="VIM$"] focus
 assign [class="Firefox"] → 2:Web
 assign [class="Evolution"] → 3:Mail
 assign [class="Slack"] → 4:Comm
+assign [title="Weechat*"] → 4:Comm
 assign [title="davmail_offlineimap"] → 3:Mail
 assign [title="mutt"] → 3:Mail
 
