@@ -159,12 +159,12 @@ bindsym $mod+Control+s [class="Slack"] focus
 bindsym $mod+Control+m [title="mutt"] focus
 bindsym $mod+Control+v [title="VIM$"] focus
 
-assign [class="Firefox"] → 2:Web
-assign [class="Evolution"] → 3:Mail
-assign [class="Slack"] → 4:Comm
-assign [title="davmail_offlineimap"] → 3:Mail
-assign [title="mutt"] → 3:Mail
-assign [class="Emacs"] → 5:Emacs
+assign [class="Firefox"] → 2
+assign [class="Evolution"] → 3
+assign [class="Slack"] → 4
+assign [title="davmail_offlineimap"] → 3
+assign [title="mutt"] → 3
+assign [class="Emacs"] → 5
 
 exec i3-sensible-terminal
 exec firefox
