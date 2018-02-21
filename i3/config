@@ -17,6 +17,9 @@ workspace_auto_back_and_forth yes
 #default to stacked layout
 workspace_layout stacking
 
+#show borders only when more than one window is visible
+hide_edge_borders smart
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monaco 10
@@ -143,13 +146,6 @@ mode "resize" {
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #C20257 #FFFFFF #551C60   #C20257
 client.unfocused        #000000 #000000 #FFFFFF #551C60   #000000
-
-#show border around currently focused window
-for_window [class="^.*"] border pixel 3
-#except
-for_window [class="Firefox"] border pixel 0 
-for_window [class="Slack"] border pixel 0 
-for_window [class="Evolution"] border pixel 0 
 
 bindsym $mod+r mode "resize"
 bindsym $mod+Control+l exec ~/.settings/lock.sh
