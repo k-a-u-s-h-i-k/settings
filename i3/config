@@ -175,7 +175,7 @@ exec slack
 exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail/mail.zsh"
 exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
 # Start my custom bar at the top
-exec --no-startup-id polybar example
+exec --no-startup-id polybar --reload example
 
 # Shutdown, reboot, lock screen
 # In order to make shutdown and suspend work, look up sudo visudo syntax
