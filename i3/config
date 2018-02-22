@@ -71,6 +71,9 @@ bindsym $mod+e layout toggle split
 #go back to previous workspace with same keystroke
 workspace_auto_back_and_forth yes
 
+#show 3 pixel border around windows
+for_window [class="^.*"] border pixel 3 
+
 #show borders only when more than one window is visible
 hide_edge_borders smart
 
