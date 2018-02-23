@@ -14,3 +14,5 @@ sudo make install
 
 mkdir ~/.config/polybar
 ln -s ~/.settings/polybar/config ~/.config/polybar/config
+
+sudo apt install fonts-font-awesome
