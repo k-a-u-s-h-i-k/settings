@@ -77,6 +77,8 @@ noremap <Leader>i :!make install <enter>
 noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open myvimrc file in a vsplit
 nnoremap <leader>v :vsplit ~/.myvimrc<cr>
+"leader + l to clear search highlighting
+nnoremap <leader>l :noh<CR>
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
