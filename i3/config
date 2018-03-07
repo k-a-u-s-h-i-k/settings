@@ -171,7 +171,7 @@ assign [class="Evolution"] → 3
 assign [class="Slack"] → 4
 assign [title="davmail_offlineimap"] → 3
 assign [title="mutt"] → 3
-assign [class="Emacs"] → 5
+#assign [class="Emacs"] → 1 
 
 exec i3-sensible-terminal
 exec firefox
