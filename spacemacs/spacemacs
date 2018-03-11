@@ -401,6 +401,10 @@ you should place your code here."
   (setq ranger-override-dired 't)
   (setq ranger-override-dired-mode 't)
 
+  ;; add all files in this folder to org agenda
+  (load-library "find-lisp")
+  (setq org-agenda-files
+        (find-lisp-find-files "~/org" "\.org$"))
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
