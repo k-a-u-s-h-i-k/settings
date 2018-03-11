@@ -405,6 +405,18 @@ you should place your code here."
   (load-library "find-lisp")
   (setq org-agenda-files
         (find-lisp-find-files "~/org" "\.org$"))
+
+  ;; needed so minted can be used as a package with pdflatex
+  (setq org-latex-listings 'minted
+        org-latex-packages-alist '(("" "minted"))
+        org-latex-pdf-process
+        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+  ;; wrap long lines of source code blocks
+  (setq org-latex-minted-options '(("breaklines" "true")
+                                   ("breakanywhere" "true")
+                                   ("breaksymbolleft" "=")))
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
