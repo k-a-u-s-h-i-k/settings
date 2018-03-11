@@ -182,6 +182,8 @@ fi
 #export PIP_REQUIRE_VIRTUALENV=true # pip should only run if there is a virtualenv currently activated
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/cache # cache pip-installed packages to avoid re-downloading
 export EDITOR=`which vim` #ZSH default editor
+# If emacs isn't started while starting emacsclient, this will auto start
+export ALTERNATE_EDITOR=""
 export TERM=xterm-256color
 
 #set the right prompt in zsh to show laptop battery %
