@@ -417,6 +417,10 @@ you should place your code here."
   (setq org-latex-minted-options '(("breaklines" "true")
                                    ("breakanywhere" "true")
                                    ("breaksymbolleft" "=")))
+
+  ;; always follow symbolic links
+  (setq vc-follow-symlinks t)
+
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
