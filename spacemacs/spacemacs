@@ -37,7 +37,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+
+     ;; This seems to slow down emacs
+     ;;auto-completion
      ;; better-defaults
      emacs-lisp
      git
