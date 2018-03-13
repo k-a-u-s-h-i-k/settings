@@ -39,7 +39,10 @@ bindkey -v #zsh vi keybindings
 bindkey '^[OA' up-line-or-beginning-search #up arrow use the commands previous history
 bindkey '^[OB' down-line-or-beginning-search #down arrrow use the commands previous history
 bindkey "^I" expand-or-complete-with-dots #insert red dots when waiting for completion
+HISTSIZE=10000000 #number of commands from history file loaded into the shell’s memory
+SAVEHIST=10000000 #number of commands the history file can hold
 setopt HIST_FIND_NO_DUPS #when searching/scrolling through history, ignore dupe entries
+setopt HIST_SAVE_NO_DUPS #Don't write duplicate entries in the history file.
 setopt correct #zsh spelling correction
 setopt extended_glob
 #---------------------  ZSH OPTIONS ------------------------------
