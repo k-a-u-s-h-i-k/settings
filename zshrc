@@ -192,6 +192,16 @@ export TERM=xterm-256color
 #set the right prompt in zsh to show laptop battery %
 RPROMPT=$(battery_prompt)
 
+#if weechat exists, then start it once
+wee=$(command -v weechat)
+if [ ! -z $wee ]; then
+	wee=$(pgrep wee)
+	#start weechat
+	if [ -z $wee ]; then
+		weechat
+	fi
+fi
+
 # ZSH Syntax Highlighting note this should be the last entry
 if [ -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
