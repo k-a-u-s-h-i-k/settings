@@ -195,11 +195,14 @@ RPROMPT=$(battery_prompt)
 #if weechat exists, then start it once
 wee=$(command -v weechat)
 if [ ! -z $wee ]; then
-	wee=$(pgrep wee)
-	#start weechat
-	if [ -z $wee ]; then
-		weechat
-	fi
+    wee=$(pgrep wee)
+    #start weechat
+    if [ -z $wee ]; then
+        if [ ! -f /tmp/weechat ]; then
+            touch /tmp/weechat
+            weechat
+        fi
+    fi
 fi
 
 # ZSH Syntax Highlighting note this should be the last entry
