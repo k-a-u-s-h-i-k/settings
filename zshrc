@@ -1,9 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
 ZSH_THEME="spaceship" #current theme
+SPACESHIP_BATTERY_SHOW=always
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info vi-mode globalias z colored-man-pages)
-
 source $ZSH/oh-my-zsh.sh
 
 #---------------------  ALIAS ------------------------------
@@ -19,18 +19,17 @@ alias mcr='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
 alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
-alias pi='ssh osmc@192.168.1.109'
-alias zshrc='vim ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias i3c='vim ${HOME}/.settings/i3/config'
+alias zshrc='e ~/.zshrc'
+alias vimrc='e ~/.vimrc'
+alias i3c='e ${HOME}/.settings/i3/config'
 alias vpn='/opt/cisco/anyconnect/bin/vpnui'
-alias per='vim ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
-alias muttrc='vim ${HOME}/.mutt/muttrc'
+alias per='e ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
+alias muttrc='e ${HOME}/.mutt/muttrc'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
 if [ -e ${ZSH}/custom/personal/personal.sh ]; then
-	source $ZSH/custom/personal/personal.sh
+    source $ZSH/custom/personal/personal.sh
 fi
 
 #---------------------  ZSH OPTIONS ------------------------------
@@ -62,65 +61,65 @@ for link ($MARKPATH/*(N@)) {
 }
 
 function go {
-	if [ -z "$1" ]; then
-		#no arguments given
-		hash -d
-	else
-		~$1
-	fi
+    if [ -z "$1" ]; then
+        #no arguments given
+        hash -d
+    else
+		    ~$1
+	  fi
 }
 
 function save {
-	if [ -z "$1" ]; then
-		#no arguments given
-		echo "ERROR: Missing argument\n"
-		echo "usage:"
-		echo "save <name_of_bookmark>"
-	else
+    if [ -z "$1" ]; then
+        #no arguments given
+        echo "ERROR: Missing argument\n"
+        echo "usage:"
+        echo "save <name_of_bookmark>"
+    else
         if [ -h "$MARKPATH/$1" ]; then
             #if soft link exists, delete before creating new soft link with the same name
             rm -rf $MARKPATH/$1
         fi
-		ln -s $PWD $MARKPATH/$1
-		hash -d -- $1=$PWD
-	fi
+        ln -s $PWD $MARKPATH/$1
+        hash -d -- $1=$PWD
+	  fi
 }
 
 function unsave {
-	if [ -z "$1" ]; then
-		#no arguments given
-		echo "ERROR: Missing argument\n"
-		echo "usage:"
-		echo "unsave <name_of_bookmark>"
-	else
+    if [ -z "$1" ]; then
+        #no arguments given
+        echo "ERROR: Missing argument\n"
+        echo "usage:"
+        echo "unsave <name_of_bookmark>"
+    else
         #if bookmark exists in hash table, then remove
         if [ -h "$MARKPATH/$1" ]; then
             rm -If ~/.go-dirs/$1
             unhash -d $1
         fi
-	fi
+	  fi
 }
 
 # Function for always using one (and only one) vim server
 # If you really want a new vim session, simply do not pass any argument to this function.
 function v {
-	vim_orig=$(which 2>/dev/null vim)
-	if [ -z $vim_orig ]; then
-		echo "$SHELL: vim: command not found"
-		return 127;
-	fi
-	$vim_orig --serverlist | grep -q VIM
-	# If there is already a vimserver, use it
-	# unless no args were given
-	if [ $? -eq 0 ]; then
-		if [ $# -eq 0 ]; then
-			$vim_orig
-		else
-			$vim_orig --remote "$@"
-		fi
-	else
-		$vim_orig --servername vim "$@"
-	fi
+    vim_orig=$(which 2>/dev/null vim)
+    if [ -z $vim_orig ]; then
+        echo "$SHELL: vim: command not found"
+        return 127;
+    fi
+    $vim_orig --serverlist | grep -q VIM
+    # If there is already a vimserver, use it
+    # unless no args were given
+    if [ $? -eq 0 ]; then
+        if [ $# -eq 0 ]; then
+            $vim_orig
+        else
+            $vim_orig --remote "$@"
+        fi
+	  else
+		    $vim_orig --servername vim "$@"
+	  fi
 }
 
 function battery_prompt()
