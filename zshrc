@@ -122,31 +122,6 @@ function v {
 	  fi
 }
 
-function battery_prompt()
-{
-	#if acpi utility does not exist, do not show battery in zsh shell
-	ACPI=$(command -v acpi)
-	if [ -z ACPI ]; then
-		return 1;
-	fi
-	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
-	if [[ $charging -gt 0 ]]; then
-		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
-		if [ $battery -gt 50 ] ; then
-			color='green'
-		elif [ $battery -gt 20 ] ; then
-			color='yellow'
-		elif [ $battery -gt 10 ] ; then
-			color='red'
-		else
-			color='red'
-			echo -n "%{$fg_bold[$color]%}BATTERY TOO LOW. CHARGE BATTERY ASAP! "
-		fi
-
-		echo -n "%{$fg_bold[$color]%}[$battery%%]%{$reset_color%}"
-	fi
-}
-
 #patchrb <review id>
 function patchrb()
 {
@@ -187,9 +162,6 @@ export EDITOR=`which vim` #ZSH default editor
 # If emacs isn't started while starting emacsclient, this will auto start
 export ALTERNATE_EDITOR=""
 export TERM=xterm-256color
-
-#set the right prompt in zsh to show laptop battery %
-RPROMPT=$(battery_prompt)
 
 #if weechat exists, then start it once
 wee=$(command -v weechat)
