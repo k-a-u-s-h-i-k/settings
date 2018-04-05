@@ -138,6 +138,19 @@ function e()
   emacsclient -c $1 &
 }
 
+function disp()
+{
+    if [ "$1" = "m" ]; then
+        # enable main display
+        xrandr --output DP2 --auto
+        xrandr --output eDP1 --off
+    else
+        # enable laptop screen
+        xrandr --output DP2 --off
+        xrandr --output eDP1 --auto
+    fi
+}
+
 #check if emacs is available on the system
 emacs=$(command -v emacs)
 if [ ! -z $emacs ]; then
