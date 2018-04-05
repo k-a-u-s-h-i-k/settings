@@ -41,7 +41,7 @@ case ${option:-} in
 	*    ) DEFAULT_SESSION_I3=0 ;; 
 esac
 
-if [[ ${DEFAULT_SESSION_I3} -gt 0 ]]; then
+if [ ${DEFAULT_SESSION_I3} -gt 0 ]; then
 	echo "user-session=i3" | sudo tee -a /etc/lightdm/lightdm.conf
 fi
 
