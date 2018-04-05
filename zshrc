@@ -7,6 +7,10 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 
+# always show laptop battery percentage
+if [ ${ZSH_THEME} = "spaceship" ]; then
+    SPACESHIP_BATTERY_SHOW=always
+fi
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -192,32 +196,6 @@ function v {
 	fi
 }
 
-function battery_prompt()
-{
-    ACPI=$(command -v acpi)
-    if [ -z "$ACPI" ]; then
-        #return 1 if ACPI command does not exist
-        return 1
-    fi
-
-	charging=$(acpi 2>/dev/null | grep -c '^Battery.*Discharging')
-	if [[ $charging -gt 0 ]]; then
-		battery=$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')
-		if [ $battery -gt 50 ] ; then
-			color='green'
-		elif [ $battery -gt 20 ] ; then
-			color='yellow'
-		elif [ $battery -gt 10 ] ; then
-			color='red'
-		else
-			color='red'
-			echo -n "%{$fg_bold[$color]%}BATTERY TOO LOW. CHARGE BATTERY ASAP! "
-		fi
-
-		echo -n "%{$fg_bold[$color]%}[$battery%%]%{$reset_color%}"
-	fi
-}
-
 #zsh vi keybindings
 bindkey -v
 
@@ -233,8 +211,6 @@ export EDITOR=`which vim`
 export SVN_EDITOR=`which vim`
 #enable 256 colour support
 export TERM=xterm-256color
-#set the right prompt in zsh to show laptop battery %
-RPROMPT=$(battery_prompt)
 
 #if weechat exists, then start it once
 wee=$(command -v weechat)
