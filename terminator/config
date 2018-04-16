@@ -26,6 +26,7 @@
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
+    urgent_bell = True
     use_custom_command = True
     use_system_font = False
   [[terminator_default]]
