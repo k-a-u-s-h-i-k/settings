@@ -1,3 +1,6 @@
+# Start compton on i3 start
+exec --no-startup-id compton --config ${HOME}/.settings/compton/compton.conf
+
 #start polybar
 exec ~/.settings/polybar/launch_polybar.sh
 
