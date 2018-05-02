@@ -77,6 +77,8 @@ noremap <Leader>i :!make install <enter>
 noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open myvimrc file in a vsplit
 nnoremap <leader>v :vsplit ~/.myvimrc<cr>
+"leader + f to invoke astyle on current file 
+nnoremap <leader>f :%!astyle<cr>
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
