@@ -5,7 +5,7 @@ exec --no-startup-id compton --config ${HOME}/.settings/compton/compton.conf
 exec ~/.settings/polybar/launch_polybar.sh
 
 #set a random wallpaper
-feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
+exec feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
 
 #example xrandr line to configure your monitors
 #exec xrandr --output eDP1 --auto --right-of HDMI3 --output VGA1 --auto --left-of HDMI3
