@@ -10,7 +10,7 @@ else
 fi
 
 #set package manager based on OS
-if [ "$OS" == "arch" ]; then
+if [ "$OS" = "arch" ]; then
     PKGMGR="pacman -S"
 else
     PKGMGR="apt install -y"

@@ -63,7 +63,7 @@ output "============== Installing VIM =========================="
 sudo $PKGMGR vim
 
 output "============== Installing Ag =========================="
-if [ "$OS" == "arch" ]; then
+if [ "$OS" = "arch" ]; then
     sudo $PKGMGR the_silver_searcher
 else
     sudo $PKGMGR silversearcher-ag
@@ -133,7 +133,7 @@ echo "set noexpandtab" > make.vim
 cd -
 
 output "=============== Installing vim-gtk to get global clipboard support ==============="
-if [ "$OS" == "ubuntu" ]; then
+if [ "$OS" = "ubuntu" ]; then
     sudo $PKGMGR vim-gtk
 fi
 
