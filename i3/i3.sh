@@ -45,6 +45,9 @@ if [ ${DEFAULT_SESSION_I3} -gt 0 ]; then
 	echo "user-session=i3" | sudo tee -a /etc/lightdm/lightdm.conf
 fi
 
+#create a wallpaper folder
+mkdir -p ${HOME}/Pictures/wallpapers
+
 echo -n ""
 echo -n ""
 echo "Successfully installed i3 wm"
