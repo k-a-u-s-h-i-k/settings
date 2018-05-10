@@ -129,7 +129,7 @@ if [ ! -d ~/.vim/ftplugin ]; then
 fi
 cd ~/.vim/ftplugin
 #do not expand tabs in a makefile
-echo "set noexpandtab" > make.vim
+echo "setlocal noexpandtab" > make.vim
 cd -
 
 output "=============== Installing vim-gtk to get global clipboard support ==============="
