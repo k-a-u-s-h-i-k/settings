@@ -100,6 +100,18 @@ function unsave {
 	  fi
 }
 
+#zsh completion for go commands
+function go_completion {
+    #for each link in MARKPATH
+    for link ($MARKPATH/*(N@)) {
+            #add to completion
+	          compadd ${link:t}
+    }
+}
+
+#call go_completion for go auto completion
+compdef go_completion go
+
 # Function for always using one (and only one) vim server
 # If you really want a new vim session, simply do not pass any argument to this function.
 function v {
