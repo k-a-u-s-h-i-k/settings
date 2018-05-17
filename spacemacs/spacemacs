@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(markdown
+     python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -39,11 +40,10 @@ values."
      helm
 
      ;; This seems to slow down emacs
-     ;;auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
-     ;; markdown
      (org   :variables
             org-startup-truncated nil
      )
@@ -334,6 +334,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; list of git repos
   (setq-default git-enable-magit-svn-plugin t)
+
+  (load "~/.spacemacs.d/custom")
   )
 
 (defun dotspacemacs/user-config ()
@@ -435,9 +437,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (ranger vimrc-mode insert-shebang flycheck-bashate flycheck fish-mode dactyl-mode company-shell erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks xterm-color x86-lookup smeargle shell-pop realgud test-simple loc-changes load-relative orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download org-brain nasm-mode multi-term molokai-theme magit-gitflow htmlize helm-gitignore helm-cscope xcscope helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy evil-org evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help dracula-theme doom-themes all-the-icons memoize font-lock+ disaster diff-hl company-statistics company-c-headers company cmake-mode cmake-ide levenshtein clang-format browse-at-remote auto-yasnippet yasnippet ace-jump-buffer ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
