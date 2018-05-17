@@ -1,7 +1,7 @@
 # Start compton on i3 start
 exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 # Set multi-monitor settings
-exec ~/.settings/dock.sh
+exec ~/.settings/i3/dock.sh
 # turn off screen after 3 minutes of activity
 exec --no-startup-id xset dpms 180 0 0
 #show wifi drop down menu in dock
@@ -187,7 +187,7 @@ exec --no-startup-id /usr/bin/emacs --daemon
 
 # Shutdown, reboot, lock screen
 # In order to make shutdown and suspend work, look up sudo visudo syntax
-set $Locker ~/.settings/lock.sh
+set $Locker ~/.settings/i3/lock.sh
 set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown, (u) suspend, (h) hibernate
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"

@@ -8,4 +8,5 @@ fi
 
 wallpaper_path=${HOME}/Pictures/wallpapers/png
 image=$(ls $wallpaper_path | sort -R | tail -1)
-i3lock -i "$wallpaper_path/$image"
+convert "${wallpaper_path}/${image}"  -gravity center -background black -extent 2560x1440 /tmp/lockscreen
+i3lock -i /tmp/lockscreen
