@@ -183,6 +183,7 @@ exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.
 exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
 # Start my custom bar at the top
 exec --no-startup-id polybar --reload example
+exec --no-startup-id /usr/bin/emacs --daemon
 
 # Shutdown, reboot, lock screen
 # In order to make shutdown and suspend work, look up sudo visudo syntax

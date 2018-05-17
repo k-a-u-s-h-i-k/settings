@@ -163,16 +163,6 @@ function disp()
     fi
 }
 
-#check if emacs is available on the system
-emacs=$(command -v emacs)
-if [ ! -z $emacs ]; then
-	emacs=$(pgrep emacs)
-	#start emacs in daemon mode if not already started
-	if [ -z $emacs ]; then
-		emacs --daemon > /dev/null 2>&1 &
-	fi
-fi
-
 # Set background wallpaper only the first time
 if [ ! -e /tmp/wallpaper ]; then
     touch /tmp/wallpaper
