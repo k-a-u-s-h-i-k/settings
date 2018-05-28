@@ -154,12 +154,10 @@ function disp()
 {
     if [ "$1" = "m" ]; then
         # enable main display
-        xrandr --output DP2 --auto
-        xrandr --output eDP1 --off
+        xrandr --output DP2-2 --auto --output eDP1 --off
     else
         # enable laptop screen
-        xrandr --output DP2 --off
-        xrandr --output eDP1 --auto
+        xrandr --output DP2-2 --off --output eDP1 --auto
     fi
 }
 
