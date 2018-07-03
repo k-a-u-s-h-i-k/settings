@@ -1,5 +1,5 @@
 # Start compton on i3 start
-exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
+#exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 # Set multi-monitor settings
 exec ~/.settings/i3/dock.sh
 # turn off screen after 3 minutes of activity
