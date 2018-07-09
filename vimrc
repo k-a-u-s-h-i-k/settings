@@ -107,6 +107,10 @@ else
 
 		"Marks :help signature
 		Plug 'kshenoy/vim-signature'
+
+    "Jump to any location within a buffer
+    "s followed by two chars to jump in normal mode
+    Plug 'justinmk/vim-sneak'
 	call plug#end()
 endif
 
