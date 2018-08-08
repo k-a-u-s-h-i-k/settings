@@ -423,6 +423,9 @@ you should place your code here."
   ;; always follow symbolic links
   (setq vc-follow-symlinks t)
 
+  ;; enable inline images in org mode
+  (setq org-startup-with-inline-images t)
+
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
