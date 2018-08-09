@@ -164,7 +164,7 @@ bindsym $mod+Control+t [class="X-terminal-emulator"] focus
 bindsym $mod+Control+s [class="Slack"] focus
 bindsym $mod+Control+m [title="mutt"] focus
 bindsym $mod+Control+v [title="VIM$"] focus
-bindsym $mod+Control+p [class="Emacs"] focus
+bindsym $mod+Control+e [class="Emacs"] focus
 
 assign [class="Firefox"] → 2
 assign [class="Evolution"] → 3
