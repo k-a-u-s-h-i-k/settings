@@ -426,6 +426,9 @@ you should place your code here."
   ;; enable inline images in org mode
   (setq org-startup-with-inline-images t)
 
+  ;; wrap at the end of a word instead of the middle of a word
+  (setq global-visual-line-mode t)
+
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
