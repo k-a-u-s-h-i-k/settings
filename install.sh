@@ -178,11 +178,9 @@ output "=============== Setting up Terminator ==============="
 ~/.settings/terminator/terminator.sh
 
 output "=============== Install custom zsh theme ==============="
-curl https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh > ~/.oh-my-zsh/themes/spaceship.zsh-theme
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/themes/spaceship.zsh-theme"
 
 output "=============== vimrc and zshrc files are now in your home folder ================="
 output "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
 output "=============== Setup successful =================="
-
-#Check this site for how to setup cron task for auto git pull
-#https://thoughtsimproved.wordpress.com/2015/08/17/self-updating-git-repos/
