@@ -176,19 +176,6 @@ export EDITOR=`which vim` #ZSH default editor
 export ALTERNATE_EDITOR=""
 export TERM=xterm-256color
 
-#if weechat exists, then start it once
-wee=$(command -v weechat)
-if [ ! -z $wee ]; then
-    wee=$(pgrep wee)
-    #start weechat
-    if [ -z $wee ]; then
-        if [ ! -f /tmp/weechat ]; then
-            touch /tmp/weechat
-            weechat
-        fi
-    fi
-fi
-
 # ZSH Syntax Highlighting note this should be the last entry
 if [ -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
