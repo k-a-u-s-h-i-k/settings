@@ -147,7 +147,8 @@ function patchrb()
 #open emacs client in the background
 function e()
 {
-  emacsclient -c $1 &
+  #brackets are required to detach from current terminal
+  (emacsclient -c $1 &)
 }
 
 function disp()
