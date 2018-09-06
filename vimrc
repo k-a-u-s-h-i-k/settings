@@ -81,6 +81,8 @@ noremap <Leader>i :!make install <enter>
 noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open vimrc file in a vsplit
 nnoremap <leader>v :vsplit $MYVIMRC<cr>
+"leader + c in visual mode will comment out a block of lines
+vmap <Leader>c <C-V>I//<Esc><Esc>
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
