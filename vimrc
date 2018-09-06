@@ -79,6 +79,8 @@ noremap <silent> <Leader>s :mksession <enter>
 nnoremap <leader>v :vsplit ~/.myvimrc<cr>
 "leader + f to invoke astyle on current file 
 nnoremap <leader>f :%!astyle<cr>
+"leader + c in visual mode will comment out a block of lines
+vmap <Leader>c <C-V>I//<Esc><Esc>
 
 "--------------------- Vim-Plug managed plugins ------------------------------
 "If vim-plug isn't installed, install it
