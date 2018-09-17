@@ -212,8 +212,8 @@ function v {
 bindkey -v
 
 #up arrow and down arrow use the commands previous history
-bindkey '^[OA' up-line-or-beginning-search
-bindkey '^[OB' down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
 #zsh spelling correction
 setopt correct
