@@ -46,6 +46,8 @@ values."
      git
      (org   :variables
             org-startup-truncated nil
+            org-enable-bootstrap-support t
+            org-enable-hugo-support t
      )
 
      (shell :variables
