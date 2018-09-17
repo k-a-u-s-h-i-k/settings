@@ -187,6 +187,8 @@ exec slack
 
 # after 5 minutes of inactivity, turn off the screen
 exec --no-startup-id xset dpms 300 0 0
+# autolock after 5 minutes of inactivity
+exec xautolock -time 5 -locker 'i3lock -c 000000'
 
 #show wifi drop down menu in dock
 exec nm-applet

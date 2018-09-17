@@ -22,6 +22,9 @@ sudo apt install -y xbacklight
 #use feh to manage desktop wallpaper
 sudo apt install -y feh
 
+#install xautolock to automatically lock your screen
+sudo apt install xautolock
+
 #copy i3 config files
 if [ ! -d ~/.config/i3 ]; then
 	mkdir -p ~/.config/i3
