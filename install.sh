@@ -97,8 +97,9 @@ chmod +x oh.sh
 rm -f ./oh.sh
 
 #Add additional plugins for ZSH not found in oh-my-zsh
-git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom/}/plugins/alias-tips
+git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/marzocchi/zsh-notify.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/notify
 
 #setup softlinks
 output "=============== Setting up Soft Links ================="
