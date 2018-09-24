@@ -183,6 +183,54 @@ function go_completion {
         }
 }
 
+# a simple hex/dec/bin to bin/dec/hex convertor
+function = ()
+{
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        cat << HERE
+Invalid Syntax
+
+Examples:
+
+Binary to Hex
+    = 2to10 1011
+
+Binary to Decimal
+    = 2to10 1011
+
+Decimal to Binary
+    = 10to2 3735929054
+
+Decimal to Hex
+    = 10to16 11011110101011011100000011011110
+
+Hex to Binary
+    = 16to2 1000
+
+Hex to Decimal
+    = 16to10 1000
+HERE
+        return 1
+    fi
+
+    if [ $1 = "2to10" ]; then
+        typeset -i10 answer="2#$2"
+    elif [ $1 = "2to16" ]; then
+        typeset -i16 answer="2#$2"
+    elif [ $1 = "16to2" ]; then
+        typeset -i2 answer="16#$2"
+    elif [ $1 = "16to10" ]; then
+        typeset -i10 answer="16#$2"
+    elif [ $1 = "10to2" ]; then
+        typeset -i2 answer="$2"
+    elif [ $1 = "10to16" ]; then
+        typeset -i16 answer="$2"
+    fi
+
+    # strip 16# or 2# in front of those bases and then print
+    echo ${answer#*#}
+}
+
 #call go_completion for go auto completion
 compdef go_completion go
 
