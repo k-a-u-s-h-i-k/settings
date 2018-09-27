@@ -25,6 +25,7 @@ alias i3c='e ${HOME}/.settings/i3/config'
 alias vpn='/opt/cisco/anyconnect/bin/vpnui'
 alias per='e ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
 alias muttrc='e ${HOME}/.mutt/muttrc'
+alias o='xdg-open'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
