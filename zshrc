@@ -256,6 +256,32 @@ function v {
 	fi
 }
 
+# usage
+#     present #will turn on HDMI1 if connected and kill xautolock
+#     present off #will turn off HDMI1 and start xautolock
+function present()
+{
+    if [ "$1" = "off" ]; then
+        # turn off HDMI1 display
+        xrandr --output HMDI1 --off
+        # lock screen after 5 minutes
+        xautolock -time 5 -locker 'i3lock -c 000000'
+    else
+        #check if HDMI1 is connected
+        xrandr | grep -q "HDMI1 connected [0-9]"
+        if [ $? -ne 0 ]; then
+            echo "HDMI display port is not connected to a screen. Please connect and try again."
+            return 1
+        fi
+
+        # turn on HDMI1 display
+        xrandr --output HMDI1 --auto
+
+        # turn off auto lock screen
+        pkill xautolock
+    fi
+}
+
 #zsh vi keybindings
 bindkey -v
 
