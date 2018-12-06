@@ -145,11 +145,18 @@ function patchrb()
 	patch -p0 -i /tmp/$1.patch
 }
 
-#open emacs client in the background
+#open file in an existing instance of emacs
 function e()
 {
   #brackets are required to detach from current terminal
-  (emacsclient -c $1 &)
+  (emacsclient $1 &)
+}
+
+#open file in a new emacs frame
+function ee()
+{
+    #brackets are required to detach from current terminal
+    (emacsclient -c $1 &)
 }
 
 function disp()
