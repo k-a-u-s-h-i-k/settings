@@ -2,6 +2,7 @@ export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
 ZSH_THEME="spaceship" #current theme
 SPACESHIP_BATTERY_SHOW=always
+SPACESHIP_GIT_STATUS_SHOW=false 
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info vi-mode globalias z colored-man-pages fancy-ctrl-z zsh-autosuggestions alias-tips notify)
 source $ZSH/oh-my-zsh.sh
