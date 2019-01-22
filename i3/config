@@ -15,7 +15,7 @@ new_window none
 workspace_auto_back_and_forth yes
 
 #default to stacked layout
-workspace_layout stacking
+workspace_layout tabbed
 
 #show 3 pixel border around windows
 for_window [class="^.*"] border pixel 3
@@ -171,7 +171,7 @@ assign [class="Evolution"] → 3
 assign [class="Slack"] → 4
 assign [title="davmail_offlineimap"] → 3
 assign [title="mutt"] → 3
-#assign [class="Emacs"] → 1 
+#assign [class="Emacs"] → 1
 
 exec i3-sensible-terminal
 exec firefox
