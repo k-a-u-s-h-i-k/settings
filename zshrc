@@ -9,6 +9,7 @@ ZSH_THEME="spaceship"
 
 # always show laptop battery percentage
 if [ ${ZSH_THEME} = "spaceship" ]; then
+    SPACESHIP_GIT_STATUS_SHOW=false 
     SPACESHIP_BATTERY_SHOW=always
 fi
 # Uncomment the following line to use case-sensitive completion.
