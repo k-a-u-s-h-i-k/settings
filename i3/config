@@ -7,8 +7,8 @@ exec ~/.settings/polybar/launch_polybar.sh
 #set a random wallpaper
 exec feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
 
-#example xrandr line to configure your monitors
-#exec xrandr --output eDP1 --auto --right-of HDMI3 --output VGA1 --auto --left-of HDMI3
+# use arandr to set your displays and then save the layout as display.sh
+exec ~/.screenlayout/display.sh
 
 #alt key is the modifier
 set $mod Mod4
