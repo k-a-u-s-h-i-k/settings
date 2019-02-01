@@ -146,10 +146,24 @@ function patchrb()
 	patch -p0 -i /tmp/$1.patch
 }
 
-#open file in an existing instance of emacs
+#open file in an existing instance of emacs if it exists or create a new frame otherwise
 function e()
 {
-  emacsclient -n "$@"
+	WINDOWS=$(xdotool search --all --onlyvisible emacs 2> /dev/null)
+	if [ ! -z $WINDOWS ]; then
+		# an existing frame of emacs already exists
+		if [ "$#" -ne 0 ]; then
+			# user has supplied a file to open
+			emacsclient -n $@
+		else
+			# just focus the emacs window if a file hasn't been supplied
+			i3-msg '[class="Emacs"] focus' > /dev/null 2>&1
+			return
+		fi
+	else
+		# crete a new frame and open the file
+		emacsclient -nc $@
+	fi
 }
 
 function disp()
