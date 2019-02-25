@@ -170,6 +170,8 @@ function disp()
 {
     if [ "$1" = "m" ]; then
         # enable main display
+        xrandr > /dev/null
+        sleep 1 # give some time for display port monitor to wake up
         xrandr --output DP2-2 --auto --output eDP1 --off
     else
         # enable laptop screen
