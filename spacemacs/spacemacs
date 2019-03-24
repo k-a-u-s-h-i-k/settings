@@ -40,7 +40,9 @@ values."
      helm
 
      ;; This seems to slow down emacs
-     auto-completion
+     (auto-completion :variables
+                      ;; show snippts in auto completion pop up menu
+                      auto-completion-enable-snippets-in-popup t)
      ;; better-defaults
      emacs-lisp
      git
