@@ -447,6 +447,9 @@ you should place your code here."
   (require 'ox-beamer)
   ; add beamer to the default list
   (setq org-export-backends '(beamer html latex md))
+
+  ;; set large file warning threshold to 100MB. This is useful when opening large TAGS file
+  (setq large-file-warning-threshold 100000000)
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
