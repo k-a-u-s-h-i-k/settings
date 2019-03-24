@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
+git clone git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+cd ~/.emacs.d
+
+#the develop branch is bleeding edge but is generally stable
+git checkout develop
+
 ln -s ~/.settings/spacemacs/spacemacs ~/.spacemacs
 
-# install this for org mode tex/pdf exports
-# This is going to download > 1GB of files...
-sudo apt install texlive-latex-base
-sudo apt install texlive-latex-recommended
-sudo apt install texlive-fonts-recommended
-sudo apt install texlive-latex-extra
+mkdir ~/.spacemacs.d/
+touch ~/.spacemacs.d/custom.el
+mkdir ~/org
+
+read -s -n1 -r -p "Would you like to install tex packages for exporting to pdfs? (y/n)" option
+
+case ${option:-} in 
+	[y/Y] ) echo -e "\nInstalling tex packages\n"; sudo apt install texlive-full; sudo apt install libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev;; # needed ot export org docs to pdfs
+	     *) echo -e "\nSkipping tex package installation\n";; 
+esac
 
 #needed for ssh
 sudo apt install ssh-askpass
-
-#needed to export org docs to pdfs
-sudo apt install texlive-full
-
-#needed to use pdf-tools layer
-sudo apt install libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev
