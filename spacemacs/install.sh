@@ -14,9 +14,9 @@ mkdir ~/org
 
 read -s -n1 -r -p "Would you like to install tex packages for exporting to pdfs? (y/n)" option
 
-case ${option:-} in 
+case ${option:-} in
 	[y/Y] ) echo -e "\nInstalling tex packages\n"; sudo apt install texlive-full; sudo apt install libpng-dev zlib1g-dev libpoppler-glib-dev libpoppler-private-dev;; # needed ot export org docs to pdfs
-	     *) echo -e "\nSkipping tex package installation\n";; 
+	     *) echo -e "\nSkipping tex package installation\n";;
 esac
 
 #needed for ssh
