@@ -433,6 +433,12 @@ you should place your code here."
   ;; wrap at the end of a word instead of the middle of a word
   (setq global-visual-line-mode t)
 
+  (org-babel-do-load-languages
+   'org-babel-load-languages '(
+      (ditaa . t)
+      (python . t))
+  )
+
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
