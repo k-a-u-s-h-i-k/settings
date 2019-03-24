@@ -439,6 +439,14 @@ you should place your code here."
       (python . t))
   )
 
+  ;; ox-hugo config
+;;  (use-package ox-hugo
+;;    :ensure t            ;Auto-install the package from Melpa (optional)
+;;    :after ox)
+
+  (require 'ox-beamer)
+  ; add beamer to the default list
+  (setq org-export-backends '(beamer html latex md))
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
