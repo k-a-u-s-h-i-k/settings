@@ -21,3 +21,6 @@ esac
 
 #needed for ssh
 sudo apt install ssh-askpass
+
+#needed for 'e' zsh function
+sudo apt install xdotool
