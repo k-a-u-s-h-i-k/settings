@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git clone git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cd ~/.emacs.d
 
 #the develop branch is bleeding edge but is generally stable
@@ -24,3 +24,11 @@ sudo apt install ssh-askpass
 
 #needed for 'e' zsh function
 sudo apt install xdotool
+
+#install v26 of emacs
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt update
+sudo apt install emacs26
+
+#make new emacs the default
+sudo update-alternative --set emacs $(which emacs26)
