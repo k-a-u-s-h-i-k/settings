@@ -193,6 +193,9 @@ exec xautolock -time 5 -locker 'i3lock -c 000000'
 #show wifi drop down menu in dock
 exec nm-applet
 
+# start emacs as a daemon
+exec --no-startup-id /usr/bin/emacs --daemon
+
 
 # Shutdown, reboot, lock screen
 set $Locker i3lock -c 000000 && sleep 1
