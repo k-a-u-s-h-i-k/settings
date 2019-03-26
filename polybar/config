@@ -52,8 +52,8 @@ font-2 = Cousine for Powerline:size=10;2
 font-3 = Source Han Sans JP:size=10;1
 
 modules-left = i3
-modules-center = email
-modules-right = xbacklight volume wlan eth eth2 battery date powermenu
+modules-center =
+modules-right = email xbacklight volume wlan eth eth2 battery date powermenu
 
 tray-position = right
 tray-padding = 4
@@ -61,7 +61,7 @@ tray-padding = 4
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
