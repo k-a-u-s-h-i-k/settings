@@ -315,6 +315,8 @@ setopt correct
 
 #ZSH default editor
 export EDITOR=`which vim`
+# If emacs isn't started while starting emacsclient, this will auto start
+export ALTERNATE_EDITOR=""  
 export SVN_EDITOR=`which vim`
 #enable 256 colour support
 export TERM=xterm-256color
