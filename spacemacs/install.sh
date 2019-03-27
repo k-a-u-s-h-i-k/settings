@@ -31,4 +31,4 @@ sudo apt update
 sudo apt install emacs26
 
 #make new emacs the default
-sudo update-alternative --set emacs $(which emacs26)
+sudo update-alternatives --set emacs $(which emacs26)
