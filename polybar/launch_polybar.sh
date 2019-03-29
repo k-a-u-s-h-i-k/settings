@@ -6,6 +6,7 @@ if type "xrandr"; then
     MONITOR=$m polybar --reload example &
   done
 else
+  pkill polybar
   polybar --reload example &
 fi
 
