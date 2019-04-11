@@ -158,7 +158,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym $mod+Control+l exec i3lock -c 000000
+bindsym $mod+Control+l exec i3lock -e -f -c 000000
 bindsym $mod+Control+f [class="Firefox"] focus
 bindsym $mod+Control+t [class="X-terminal-emulator"] focus
 bindsym $mod+Control+s [class="Slack"] focus
