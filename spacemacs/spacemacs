@@ -69,19 +69,17 @@ values."
      ;;(version-control :variables
      ;;                  version-control-global-margin t)
 
-     version-control
      cscope
      c-c++
      asm
-     shell
      imenu-list
      vimscript
      shell-scripts
      erc
      ranger
-     pdf-tools
+     pdf
      ;;slack
-     ;;themes-megapack
+     themes-megapack
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
