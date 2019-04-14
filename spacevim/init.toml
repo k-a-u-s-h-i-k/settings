@@ -60,3 +60,6 @@ name = "lang#sh"
 
 [[layers]]
 name = "lang#vim"
+
+[[layers]]
+name = "tools"
