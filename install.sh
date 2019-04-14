@@ -72,6 +72,8 @@ fi
 output "============== Installing ACPI utility =========================="
 sudo $PKGMGR acpi
 
+output "============== Installing rsync utility =========================="
+sudo $PKGMGR rsync 
 
 #clone my repo
 output "=============== Cloning Kaushik's repo ================="
