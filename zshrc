@@ -108,6 +108,7 @@ alias zshrc='vim ~/.zshrc'
 alias myvimrc='vim ~/.myvimrc'
 alias myzshrc='vim ~/.myzshrc'
 alias vi='vim'
+alias o='xdg-open'
 
 # usage:
 # Go to a folder to save as a bookmark
