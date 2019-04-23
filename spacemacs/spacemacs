@@ -76,7 +76,14 @@ values."
      vimscript
      shell-scripts
      erc
-     ranger
+     (ranger :variables
+             ;; set ranger as the default file manager
+             ranger-override-dired-mode t
+             ranger-override-dired t
+             ;; clean up on window move
+             ranger-cleanup-eagerly t
+             ;; do not preview binary files
+             ranger-dont-show-binary t)
      pdf
      ;;slack
      ;;themes-megapack
@@ -403,10 +410,6 @@ you should place your code here."
 
   ;; space f f to invoke find utility replacement
   (spacemacs/set-leader-keys "ff" 'find-name-dired)
-
-  ;; set ranger as the default file manager?
-  (setq ranger-override-dired 't)
-  (setq ranger-override-dired-mode 't)
 
   ;; add all files in this folder to org agenda
   (load-library "find-lisp")
