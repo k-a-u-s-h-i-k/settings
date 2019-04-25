@@ -11,12 +11,6 @@ source $ZSH/oh-my-zsh.sh
 alias cls=clear
 alias ll='ls -l'
 alias la='ls -a'
-alias mc='make clean'
-alias mh='make hinstall'
-alias mi='make install'
-alias mr='make run'
-alias mre='make report'
-alias mcr='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
 alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
