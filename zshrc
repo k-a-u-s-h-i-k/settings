@@ -95,13 +95,6 @@ fi
 alias cls=clear
 alias ll='ls -l'
 alias la='ls -a'
-alias mm='make'
-alias mc='make clean'
-alias mh='make hinstall'
-alias mi='make install'
-alias mru='make run'
-alias mr='make report'
-alias mrc='make clean && make report'
 alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
