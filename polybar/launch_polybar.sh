@@ -1,4 +1,5 @@
 #!/bin/bash
+pkill polybar
 
 #launch polybar for each connected monitor
 if type "xrandr"; then
@@ -6,7 +7,6 @@ if type "xrandr"; then
     MONITOR=$m polybar --reload example &
   done
 else
-  pkill polybar
   polybar --reload example &
 fi
 
