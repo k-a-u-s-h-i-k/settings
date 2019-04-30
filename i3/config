@@ -8,7 +8,7 @@ exec ~/.screenlayout/display.sh
 exec_always ~/.settings/polybar/launch_polybar.sh
 
 #set a random wallpaper
-exec feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
+exec_always feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
 
 #alt key is the modifier
 set $mod Mod4
