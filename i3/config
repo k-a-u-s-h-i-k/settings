@@ -5,7 +5,7 @@ exec --no-startup-id compton --config ${HOME}/.settings/compton/compton.conf
 exec ~/.screenlayout/display.sh
 
 #start polybar
-exec_always ~/.settings/polybar/launch_polybar.sh
+exec_always ~/.settings/polybar/launch.sh
 
 #set a random wallpaper
 exec_always feh --randomize --bg-fill ${HOME}/Pictures/wallpapers/*
