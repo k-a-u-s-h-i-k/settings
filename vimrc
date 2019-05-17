@@ -77,7 +77,7 @@ noremap <Leader>i :!make install <enter>
 noremap <silent> <Leader>s :mksession <enter>
 "leader + v to open myvimrc file in a vsplit
 nnoremap <leader>v :vsplit ~/.myvimrc<cr>
-"leader + f to invoke astyle on current file 
+"leader + f to invoke astyle on current file
 nnoremap <leader>f :%!astyle<cr>
 "leader + c in visual mode will comment out a block of lines
 vmap <Leader>c <C-V>I//<Esc><Esc>
@@ -110,9 +110,13 @@ else
 		"Marks :help signature
 		Plug 'kshenoy/vim-signature'
 
-    "Jump to any location within a buffer
-    "s followed by two chars to jump in normal mode
-    Plug 'justinmk/vim-sneak'
+        "Jump to any location within a buffer
+        "s followed by two chars to jump in normal mode
+        Plug 'justinmk/vim-sneak'
+
+        "Make Org files look better
+        Plug 'jceb/vim-orgmode'
+
 	call plug#end()
 endif
 
