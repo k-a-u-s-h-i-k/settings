@@ -111,6 +111,9 @@ else
 
 		"Marks :help signature
 		Plug 'kshenoy/vim-signature'
+
+		"Make Org files look better
+		Plug 'jceb/vim-orgmode'
 	call plug#end()
 endif
 
