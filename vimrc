@@ -26,6 +26,7 @@ set cinoptions=:0,b1: "align switch case and break on switch statement
 set history=1000 "remember 1000 commands/search strings
 set sessionoptions-=options "when a session is saved, do not store vimrc options
 set autoread "reread file if an external program has changed a file
+set mouse=a "Add mouse support to vim
 autocmd Filetype c setlocal textwidth=132  "max 132 characters in a line for c files
 
 "set default shell within vim to zsh
@@ -208,6 +209,9 @@ let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
 
 "syn match cCustomFunc /\w\+\s*(/me=e-1,he=e-1
 "hi def link cCustomFunc Function
+
+" vim-sneak settings
+let g:sneak#label = 1
 
 " Add custom vim settings
 source $HOME/.myvimrc
