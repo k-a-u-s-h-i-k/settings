@@ -454,6 +454,9 @@ you should place your code here."
 
   ;; set large file warning threshold to 100MB. This is useful when opening large TAGS file
   (setq large-file-warning-threshold 100000000)
+
+  ;; turn off saving history of mini buffers
+  (savehist-mode 0)
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
