@@ -154,6 +154,7 @@ command! Grep call MySearch()
 "---------------------------------------- CUSTOM ----------------------------------------
 if &diff
     colorscheme blue "if vim is opened in diff mode (vimdiff), then use pablo colourscheme
+    set diffopt+=iwhite "ignore whitespace changes in diff"
 else
     au BufEnter /* call LoadCscope()
 endif
