@@ -92,8 +92,6 @@ fi
 #Install Oh my Zsh
 output "=============== Installing OH MY ZSH ================="
 curl https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > oh.sh
-sed -i '/env zsh/d' oh.sh
-sed -i '/chsh -s/d' oh.sh
 chmod +x oh.sh
 ./oh.sh
 rm -f ./oh.sh
