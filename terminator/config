@@ -2,6 +2,8 @@
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
 [keybindings]
   copy = <Primary><Shift>c
+  page_down = Page_Down
+  page_up = Page_Up
   paste = <Primary><Shift>v
 [layouts]
   [[default]]
