@@ -70,7 +70,7 @@ values."
      ;;                  version-control-global-margin t)
 
      cscope
-     c-c++
+     (c-c++ :variables c-c++-enable-clang-support t)
      asm
      imenu-list
      vimscript
