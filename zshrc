@@ -55,6 +55,9 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git common-aliases svn-fast-info vi-mode z colored-man-pages fancy-ctrl-z zsh-autosuggestions alias-tips notify globalias)
+if [[ INSIDE_EMACS ]]; then
+    plugins=(git common-aliases svn-fast-info alias-tips notify)
+fi
 
 # User configuration
 
