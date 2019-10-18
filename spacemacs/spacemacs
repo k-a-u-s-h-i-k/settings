@@ -586,7 +586,9 @@ before packages are loaded."
   (org-babel-do-load-languages
    'org-babel-load-languages '(
       (ditaa . t)
-      (python . t))
+      (python . t)
+      (shell . t)
+      (org . t))
   )
 
 ;; ox-hugo config
