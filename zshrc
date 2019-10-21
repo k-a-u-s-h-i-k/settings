@@ -5,7 +5,8 @@ SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_GIT_STATUS_SHOW=false
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
 plugins=(git common-aliases svn-fast-info vi-mode globalias z colored-man-pages fancy-ctrl-z zsh-autosuggestions alias-tips notify)
-if [[ INSIDE_EMACS ]]; then
+if [ ! -z ${INSIDE_EMACS+x} ]; then
+	echo "fsklfjddf"
 	plugins=(common-aliases alias-tips notify)
 fi
 source $ZSH/oh-my-zsh.sh
