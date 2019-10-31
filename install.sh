@@ -57,6 +57,8 @@ fi
 if [ -z "${git_prog}" ]; then
     output "============== Installing Git =========================="
 	sudo $PKGMGR git
+    # show git date with ISO standard and local time
+    git config --global log.date iso-local
 fi
 
 output "============== Installing VIM =========================="
