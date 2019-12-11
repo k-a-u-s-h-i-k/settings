@@ -178,9 +178,6 @@ exec firefox
 exec evolution
 exec slack
 
-#mail
-exec x-terminal-emulator --title davmail_offlineimap --command="/usr/bin/zsh ~/.settings/mail/mail.zsh"
-exec x-terminal-emulator --title mutt --command="/usr/bin/zsh -c mutt"
 # Start my custom bar at the top
 exec_always --no-startup-id polybar --reload example
 exec emacs
