@@ -321,3 +321,6 @@ export TERM=xterm-256color
 if [ -e "$HOME/.myzshrc" ]; then
     source $HOME/.myzshrc
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
