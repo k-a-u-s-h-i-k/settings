@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh # Path to your oh-my-zsh installation.
 
-ZSH_THEME="spaceship" #current theme
+ZSH_THEME=powerlevel10k/powerlevel10k
 SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_GIT_STATUS_SHOW=false
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
@@ -190,6 +190,9 @@ export EDITOR=`which vim` #ZSH default editor
 # If emacs isn't started while starting emacsclient, this will auto start
 export ALTERNATE_EDITOR=""
 export TERM=xterm-256color
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ZSH Syntax Highlighting note this should be the last entry
 if [ -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
