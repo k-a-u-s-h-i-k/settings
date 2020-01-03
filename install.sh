@@ -191,6 +191,7 @@ output "=============== Setting up Terminator ==============="
 output "=============== Install custom zsh theme ==============="
 git clone https://github.com/denysdovhan/spaceship-prompt.git "${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt"
 ln -s "${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "${HOME}/.oh-my-zsh/themes/spaceship.zsh-theme"  
+ln -s ~/.settings/zsh/p10k.zsh ~/.p10k.zsh
 
 output "=============== vimrc and zshrc files are now in your home folder ================="
 output "=============== Add custom vim settings to .myvimrc and zsh settings to .myzshrc files ============"
