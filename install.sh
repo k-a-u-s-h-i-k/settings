@@ -102,6 +102,7 @@ rm -f ./oh.sh
 git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/marzocchi/zsh-notify.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/notify
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 #setup softlinks
 output "=============== Setting up Soft Links ================="
@@ -162,11 +163,14 @@ cd fonts
 #install all fonts
 ./install.sh
 
+wget -P ${HOME}/.local/share/fonts https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf
+fc-cache -f ${HOME/.local/share/fonts
+
 output "=============== Setting up gnome-terminal ==============="
 # uncheck use system font in gnome-terminal
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type=boolean false
 # set gnome-terminal to use powerline font
-gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "Meslo LG S DZ for Powerline Regular 12"
+gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string "MesloLGS NF Regular 12"
 
 # find Terminal UUID to settings can be edited
 UUID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')

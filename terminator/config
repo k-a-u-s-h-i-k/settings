@@ -22,7 +22,7 @@
     background_type = transparent
     cursor_color = "#c20257"
     custom_command = /usr/bin/zsh
-    font = Meslo LG S DZ for Powerline 13
+    font = MesloLGS NF Regular 13
     foreground_color = "#c73ebf"
     palette = "#181915:#b50050:#98fe24:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#ff2500:#af5fff:#5cd1f8:#ffffff"
     scrollback_infinite = True
