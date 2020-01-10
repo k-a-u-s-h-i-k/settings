@@ -164,7 +164,7 @@ cd fonts
 ./install.sh
 
 wget -P ${HOME}/.local/share/fonts https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf
-fc-cache -f ${HOME/.local/share/fonts
+fc-cache -f ${Home}/.local/share/fonts
 
 output "=============== Setting up gnome-terminal ==============="
 # uncheck use system font in gnome-terminal
