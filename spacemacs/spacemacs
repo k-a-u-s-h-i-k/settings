@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
             org-startup-truncated nil
             org-enable-bootstrap-support t
             org-enable-hugo-support t
+            org-startup-indented t
             )
 
      (shell :variables
