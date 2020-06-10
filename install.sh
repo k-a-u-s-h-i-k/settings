@@ -95,7 +95,7 @@ fi
 output "=============== Installing OH MY ZSH ================="
 curl https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > oh.sh
 chmod +x oh.sh
-./oh.sh
+./oh.sh --unattended
 rm -f ./oh.sh
 
 #Add additional plugins for ZSH not found in oh-my-zsh
