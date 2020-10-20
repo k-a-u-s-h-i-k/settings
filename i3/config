@@ -119,6 +119,14 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
+# same as bove but with h and l keys
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+h move workspace to output left
+
 # Popup windows floating and move to center
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [window_role="Open Files"] floating enable sticky
