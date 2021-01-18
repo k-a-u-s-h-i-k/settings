@@ -184,6 +184,9 @@ augroup reload_vimrc
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
+" Snipmate settings
+let g:snipMate = { 'snippet_version' : 1 }
+
 " Airline settings
 "let g:airline_section_b="" "dont show git hunks
 "let g:airline_section_x="" "dont show filetype
