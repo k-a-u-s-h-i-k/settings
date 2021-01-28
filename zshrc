@@ -105,6 +105,8 @@ alias myvimrc='vim ~/.myvimrc'
 alias myzshrc='vim ~/.myzshrc'
 alias vi='vim'
 alias o='xdg-open'
+alias grbh='git rebase -i $(git merge-base master HEAD)'
+alias gs="git reset --soft $(git rev-list HEAD...master | tail -n 1) && git commit --all --amend --no-edit"
 
 # usage:
 # Go to a folder to save as a bookmark
