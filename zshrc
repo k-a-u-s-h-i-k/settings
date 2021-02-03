@@ -106,7 +106,30 @@ alias myzshrc='vim ~/.myzshrc'
 alias vi='vim'
 alias o='xdg-open'
 alias grbh='git rebase -i $(git merge-base master HEAD)'
-alias gs="git reset --soft $(git rev-list HEAD...master | tail -n 1) && git commit --all --amend --no-edit"
+
+function gs {
+    # (1) git rev-list master...HEAD gives a list of all commits starting at a common ancestor of both commits and HEAD
+    # (2) From (1), we pick the 2nd oldest commit so the commit message from this can be used
+    # (3) reset is used to take the branch back to (2)
+    # (4) At (3), commit these changes using the same commit message as (2)
+
+    # make sure we are in a git repo
+    if [ ! $(git rev-parse --git-dir 2> /dev/null) ]; then
+        echo "Cannot run this outside a git repo"
+        return 127
+    fi
+
+    # make sure we are not in master
+    branch=$(git branch --show-current)
+    if [ ${branch} = "master" ]; then
+        echo "Do not run this command on master. Switch to your feature branch first"
+        return 127
+    fi
+
+    echo "Squashing commits..."
+    git reset --soft $(git rev-list master...HEAD | tail -n 1) > /dev/null 2>&1 && git commit --all --amend --no-edit > /dev/null 2>&1
+    echo "Completed"
+}
 
 # usage:
 # Go to a folder to save as a bookmark
