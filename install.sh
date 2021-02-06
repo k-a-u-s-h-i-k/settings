@@ -11,7 +11,7 @@ fi
 
 #set package manager based on OS
 if [ "$OS" = "arch" ]; then
-    PKGMGR="pacman -S"
+    PKGMGR="pacman -S --noconfirm"
 else
     PKGMGR="apt install -y"
 fi

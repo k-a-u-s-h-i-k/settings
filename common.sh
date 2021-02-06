@@ -10,8 +10,8 @@ else
 fi
 
 #set package manager based on OS
-if [ "$OS" = "arch" ]; then
-    PKGMGR="pacman -S"
+if [ "$OS" = "arch" ] || [ "$OS" = "manjaro" ]; then
+    PKGMGR="pacman -S --noconfirm"
 else
     PKGMGR="apt install -y"
 fi
