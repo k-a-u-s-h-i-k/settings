@@ -209,3 +209,7 @@ let g:gitgutter_max_signs = 5000 "max diff of 5000 lines
 
 "syn match cCustomFunc /\w\+\s*(/me=e-1,he=e-1
 "hi def link cCustomFunc Function
+
+" Turn off old snipmate parser
+let g:snipMate = { 'snippet_version' : 1 }
+
