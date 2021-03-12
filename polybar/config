@@ -53,7 +53,7 @@ font-3 = Source Han Sans JP:size=10;1
 
 modules-left = i3
 modules-center =
-modules-right = email xbacklight volume wlan eth eth2 battery date powermenu
+modules-right = xbacklight volume wlan eth eth2 battery date powermenu
 
 tray-position = right
 tray-padding = 4
@@ -225,7 +225,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -264,7 +264,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth2]
 type = internal/network
-interface = enxd481d7400015 
+interface = enx083a8858ef9e
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -373,14 +373,6 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
-
-[module/email]
-type = custom/script
-format-prefix = "  "
-exec = ~/.settings/mail/email_count.sh
-format = <label>
-interval = 60
-format-underline = #93ff33
 
 [module/powermenu]
 type = custom/menu
