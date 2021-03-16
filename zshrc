@@ -4,7 +4,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 SPACESHIP_BATTERY_SHOW=always
 SPACESHIP_GIT_STATUS_SHOW=false
 COMPLETION_WAITING_DOTS="true" #enable red dots during cmpletion
-plugins=(git common-aliases svn-fast-info vi-mode globalias z colored-man-pages fancy-ctrl-z zsh-autosuggestions alias-tips notify)
+plugins=(git common-aliases svn-fast-info vi-mode globalias z colored-man-pages fancy-ctrl-z zsh-autosuggestions alias-tips)
 if [ ! -z ${INSIDE_EMACS+x} ]; then
 	plugins=(common-aliases alias-tips notify)
 fi
@@ -14,21 +14,15 @@ source $ZSH/oh-my-zsh.sh
 alias cls=clear
 alias ll='ls -l'
 alias la='ls -a'
-alias sc='screen -f -h 10000 -ln /dev/tty.SLAB_USBtoUART 115200'
-alias qemu_64='qemu-system-x86_64 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
-alias qemu='qemu-system-i386 -m 2G -kernel image.ifs -display none -serial stdio -serial tcp::5678,ipv4,server,nowait,nodelay -gdb tcp::6789,ipv4,server,nowait,nodelay -smp 1'
 alias zshrc='e ~/.zshrc'
 alias vimrc='e ~/.vimrc'
 alias i3c='e ${HOME}/.settings/i3/config'
-alias vpn='/opt/cisco/anyconnect/bin/vpnui'
-alias per='e ${HOME}/.oh-my-zsh/custom/personal/personal.sh'
-alias muttrc='e ${HOME}/.mutt/muttrc'
 alias o='xdg-open'
 #alias -g grep='grep -I'
 #---------------------  ALIAS ------------------------------
 
-if [ -e ${ZSH}/custom/personal/personal.sh ]; then
-    source $ZSH/custom/personal/personal.sh
+if [ -e ${HOME}/.myzshrc ]; then
+    source ${HOME}/.myzshrc
 fi
 
 #---------------------  ZSH OPTIONS ------------------------------
@@ -133,16 +127,6 @@ function v {
 	  fi
 }
 
-#patchrb <review id>
-function patchrb()
-{
-	go hyp
-	gcm
-	git checkout -b $1
-	rbt patch --print $1 > /tmp/$1.patch
-	patch -p0 -i /tmp/$1.patch
-}
-
 #open file in an existing instance of emacs if it exists or create a new frame otherwise
 function e()
 {
@@ -167,12 +151,10 @@ function disp()
 {
     if [ "$1" = "m" ]; then
         # enable main display
-        xrandr > /dev/null
-        sleep 1 # give some time for display port monitor to wake up
-        xrandr --output DP2-2 --auto --output eDP1 --off
+		~/.screenlayout/external.sh
     else
         # enable laptop screen
-        xrandr --output DP2-2 --off --output eDP1 --auto
+		~/.screenlayout/internal.sh
     fi
 }
 
