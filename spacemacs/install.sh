@@ -25,10 +25,5 @@ sudo apt install ssh-askpass
 #needed for 'e' zsh function
 sudo apt install xdotool
 
-#install v26 of emacs
-sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt update
-sudo apt install emacs26
-
-#make new emacs the default
-sudo update-alternatives --set emacs $(which emacs26)
+#install emacs
+sudo apt install emacs
