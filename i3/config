@@ -16,7 +16,9 @@ pacmd "set-default-source alsa_input.pci-0000_00_1f.3.analog-stereo"
 pacmd "set-default-sink alsa_output.usb-Lenovo_ThinkPad_Thunderbolt_3_Dock_USB_Audio_000000000000-00.iec958-stereo"
 
 # Launch gnome-settings-deamon to apply GTK theme
-exec --no-startup-id /usr/libexec/gsd-xsettings
+#exec --no-startup-id /usr/libexec/gsd-xsettings
+
+#set windows key as mod key
 set $mod Mod4
 
 # no title bars
