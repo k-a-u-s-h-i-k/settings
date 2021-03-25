@@ -10,10 +10,10 @@ exec --no-startup-id xset dpms 180 0 0
 #exec nm-applet
 
 #set default audio input
-pacmd "set-default-source alsa_input.pci-0000_00_1f.3.analog-stereo"
+exec pacmd "set-default-source alsa_input.pci-0000_00_1f.3.analog-stereo"
 
 #set default audio output
-pacmd "set-default-sink alsa_output.usb-Lenovo_ThinkPad_Thunderbolt_3_Dock_USB_Audio_000000000000-00.iec958-stereo"
+exec pacmd "set-default-sink alsa_output.usb-Lenovo_ThinkPad_Thunderbolt_3_Dock_USB_Audio_000000000000-00.iec958-stereo"
 
 # Launch gnome-settings-deamon to apply GTK theme
 #exec --no-startup-id /usr/libexec/gsd-xsettings
