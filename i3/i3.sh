@@ -31,6 +31,9 @@ sudo apt install -y arandr
 #install lxappearance to tweak themes
 sudo apt install lxappearance
 
+#install rofi
+sudo apt install rofi
+
 #copy i3 config files
 if [ ! -d ~/.config/i3 ]; then
 	mkdir -p ~/.config/i3
