@@ -506,9 +506,6 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-; Show line numbers by default
-  (global-linum-mode)
-
   (setq c-basic-offset 4
         c-indent-level 4
         c-default-style "bsd")
