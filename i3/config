@@ -45,6 +45,9 @@ font pango:System San Francisco Display 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# keep urgency hint for 500 ms after workspace focused
+force_display_urgency_hint 500 ms
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -136,6 +139,12 @@ for_window [window_role="File Operation Progress"] floating enable sticky
 for_window [window_role="Save As"] floating enable
 for_window [instance="file_progress"]  sticky enable
 
+# make all floating windows sticky
+for_window [class=".*"] sticky enable
+
+# set window title
+for_window [class=".*"] title_format %title | %class | %instance
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -190,7 +199,7 @@ assign [title="mutt"] → 3
 exec i3-sensible-terminal
 exec firefox
 exec evolution
-dex -s ~/.config/autostart -a
+exec dex -s ~/.config/autostart -a
 
 # Start my custom bar at the top
 exec_always --no-startup-id polybar --reload example
