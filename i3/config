@@ -202,7 +202,7 @@ exec evolution
 exec dex -s ~/.config/autostart -a
 
 # Start my custom bar at the top
-exec_always --no-startup-id polybar --reload example
+exec_always --no-startup-id ~/.settings/polybar/launch.sh
 exec emacs
 
 # Shutdown, reboot, lock screen
