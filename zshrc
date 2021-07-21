@@ -152,11 +152,11 @@ function disp()
     if [ "$1" = "m" ]; then
         # enable main display
 		~/.screenlayout/external.sh
-		MONITOR=eDP-1-3 polybar -r -q example &
+		MONITOR=DP-1-2 polybar -r -q example &
     else
         # enable laptop screen
 		~/.screenlayout/internal.sh
-		polybar -r -q example &
+		MONITOR=eDP-1 polybar -r -q example &
     fi
 }
 
