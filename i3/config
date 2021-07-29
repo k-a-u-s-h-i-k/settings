@@ -131,6 +131,12 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+# make all floating windows sticky
+for_window [class=".*"] sticky enable
+
+# set window title
+for_window [class=".*"] title_format %title | %class | %instance
+
 # Popup windows floating and move to center
 for_window [window_role="pop-up"] floating enable,move absolute center
 for_window [window_role="task_dialog"] floating enable
@@ -138,12 +144,7 @@ for_window [window_role="Open Files"] floating enable sticky
 for_window [window_role="File Operation Progress"] floating enable sticky
 for_window [window_role="Save As"] floating enable
 for_window [instance="file_progress"]  sticky enable
-
-# make all floating windows sticky
-for_window [class=".*"] sticky enable
-
-# set window title
-for_window [class=".*"] title_format %title | %class | %instance
+for_window [class="Evolution-alarm-notify"]  floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
