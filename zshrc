@@ -152,12 +152,11 @@ function disp()
     if [ "$1" = "m" ]; then
         # enable main display
 		~/.screenlayout/external.sh
-		MONITOR=DP-1-2 polybar -r -q example &
     else
         # enable laptop screen
-		~/.screenlayout/internal.sh
-		MONITOR=eDP-1 polybar -r -q example &
+        ~/.screenlayout/internal.sh
     fi
+    ~/.settings/i3/dock.sh
 }
 
 # Set background wallpaper only the first time
