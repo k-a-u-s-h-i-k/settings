@@ -1,7 +1,7 @@
 # Start compton on i3 start
 #exec --no-startup-id compton --config ${HOME}/.config/compton/compton.conf
 # Set multi-monitor settings
-exec ~/.settings/i3/dock.sh
+exec_always ~/.settings/i3/dock.sh
 
 exec ~/.custom.sh
 
@@ -203,7 +203,6 @@ exec evolution
 exec dex -s ~/.config/autostart -a
 
 # Start my custom bar at the top
-exec_always --no-startup-id ~/.settings/polybar/launch.sh
 exec emacs
 
 # Shutdown, reboot, lock screen
